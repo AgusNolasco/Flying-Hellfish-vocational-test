@@ -4,8 +4,8 @@ class Response < Sequel::Model
   one_to_one  :choice
   def validate
     super
-    errors.add(:question_id, :name => 'question_id can not be nil') if not (question_id) || (question_id.nil?)
-    errors.add(:choice_id,   :name => 'choice_id can not be nil')   if not (choice_id)   || (choice_id.nil?)
-    errors.add(:survey_id,   :name => 'survey_id can not be nil')   if not (survey_id)   || (survey_id.nil?)
+    errors.add(:question_id, :name => 'question_id can not be nil') if (question_id.nil?) || (not (question_id))
+    errors.add(:choice_id,   :name => 'choice_id can not be nil')   if (choice_id.nil?) || (not (choice_id)) 
+    errors.add(:survey_id,   :name => 'survey_id can not be nil')   if (survey_id.nil?) || (not (survey_id)) 
   end
 end
