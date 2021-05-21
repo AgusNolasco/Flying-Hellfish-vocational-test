@@ -4,18 +4,15 @@ class SurveyTest < MiniTest::Unit::TestCase
   MiniTest::Unit::TestCase
   def test_survey_must_has_username
     # Arrange
-    survey = Survey.new
+    survey1 = Survey.new
+    survey2 = Survey.new
+    survey3 = Survey.new
     # Act
-    survey.username = ''
+    survey1.username = nil
+    survey2.username = ''
     # Assert
-    assert_equal survey.valid?, false
-  end
-  def test_survey_has_a_career
-    # Arrange
-    survey = Survey.new
-    # Act
-    survey.career_id = nil
-    # Assert
-    assert_equal survey.valid?, false 
+    assert_equal(survey1.valid?, false)
+    assert_equal(survey2.valid?, false)
+    assert_equal(survey3.valid?, false)
   end
 end
