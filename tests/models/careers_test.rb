@@ -13,14 +13,23 @@ class CareerTest < MiniTest::Unit::TestCase
     # Assert
     assert_equal(career.surveys.count, 3)
   end
-=begin
-  def test_survey_has_a_career
+
+  def test_career_must_has_name
     # Arrange
-    survey = Survey.new
+    career1 = Career.new
+    career2 = Career.new
+    career3 = Career.new
+    career4 = Career.new
     # Act
-    survey.career_id = nil
+    career1.name = nil
+    career2.name = ''
+    career4.name = 'Lic. en Biologia'
+
     # Assert
-    assert_equal survey.valid?, false 
+    assert_equal(career1.valid?, false)
+    assert_equal(career2.valid?, false)
+    assert_equal(career3.valid?, false)
+    assert_equal(career4.valid?, true)
   end
-=end
+
 end
