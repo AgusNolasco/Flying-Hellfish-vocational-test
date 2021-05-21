@@ -4,6 +4,6 @@ class Survey < Sequel::Model
 	
 	def validate
 		super
-		errors.add(:username, :name => 'username can not be nil or empty') if not (username) or username.empty? or (username == nil)
+		errors.add(:username, :name => 'username can not be nil or empty') if username.empty? || username.nil?
 	end
 end

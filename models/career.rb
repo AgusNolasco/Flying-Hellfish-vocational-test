@@ -4,7 +4,7 @@ class Career < Sequel::Model
     
     def validate 
       super
-      errors.add(:name, :name => 'name can not be nil or empty') if not name or name.empty? or (name == nil)
+      errors.add(:name, :name => 'name can not be nil or empty') if name.empty? || name.nil?
     end
 end
   

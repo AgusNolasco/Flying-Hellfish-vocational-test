@@ -5,6 +5,6 @@ class Choice < Sequel::Model
 
     def validate 
         super
-        errors.add(:text, :text => 'text can not be nil or empty') if not text or text.empty? or (text == nil)
-      end
+        errors.add(:text, :text => 'text can not be nil or empty') if text.empty? || text.nil
+    end
 end
