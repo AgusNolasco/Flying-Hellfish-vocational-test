@@ -8,7 +8,7 @@ class OutcomeTest < MiniTest::Unit::TestCase
     outcome2 = Outcome.new
     outcome3 = Outcome.new
     career = Career.create(:name => 'Tecnico Nuclear')
-    choice = Choice.create(:text => '¿Te gusta la Venus del Nilo de jalea?')
+    choice = Choice.create(:text => 'Venus del Nilo de jalea')
     # Act
     outcome1.career_id = 1
     outcome2.choice_id = 1
