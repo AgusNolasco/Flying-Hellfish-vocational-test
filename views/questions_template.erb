@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>
+          Vocational Test
+        </title>
+    </head>
+    <body>
+        <a> Question number: <%= @question.number %> </a> <br>
+        <a> <%= @question.name %> </a> <br>
+        <a> <%= @question.description %> </a> <br>
+        <form action='/responses' method='POST'>
+            <input type="radio" id="opt1" name="answer" value="1">
+            <label for="opt1"> Option 1 </label> <br>
+            <input type="radio" id="opt2" name="answer" value="2">
+            <label for="opt2"> Option 2 </label> <br>
+            <input type="radio" id="opt3" name="answer" value="3">
+            <label for="opt3"> Option 3 </label> <br>
+            <button type='submit' name='question_id' value='<%= @question.id%>' > Next </button>
+        </form>
+    </body>
+</html>
