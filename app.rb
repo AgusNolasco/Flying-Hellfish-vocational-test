@@ -2,7 +2,7 @@ require './models/init.rb'
 
 class App < Sinatra::Base
   get '/' do
-    "Hello World"
+    erb :landing_page
   end
 
   get "/hello/:name" do
@@ -29,6 +29,37 @@ class App < Sinatra::Base
   get '/careers/:id' do
     career = Career.find(id: params[:id])
     "Career's name: #{career.name}"
+  end
+
+  post '/surveys' do
+    data = request.body.read
+    survey = Survey.new(username: params[:username])
+    if survey.save
+      [201, { 'Location' => "surveys/#{survey.id}" }, 'CREATED']
+      redirect "/questions/1"
+    else
+      [500, {}, 'Internal Server Error']
+    end
+  end
+
+  get '/surveys' do
+    survey = Survey.all.map {|surv| surv.username}
+    survey
+  end
+
+  get '/questions/:id' do
+    @question = Question.find(id: params[:id])
+    erb :questions_template
+  end
+
+  post '/responses' do
+    response = Response.create(question_id: params[:question_id], choice_id: params[:answer], survey_id: 18)
+    if response.save
+      [201, { 'Location' => "responses/#{response.id}" }, 'CREATED']
+      redirect "/questions/#{((response.question_id) + 1)}"
+    else
+      [500, {}, 'Internal Server Error']
+    end
   end
 
   post "/posts" do
