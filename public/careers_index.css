@@ -1,0 +1,61 @@
+body {
+    background-color: #333;
+}
+
+#logo{
+    position:relative;
+    padding: 3px;
+    height: 100px;
+    width: 100px;
+}
+
+#mainTitle{
+    position: relative;
+    left: 16px;
+}
+
+.topNav {
+    overflow: hidden;
+    background-color: orangered;    
+  }
+
+.topNav a {
+    color: #ffffff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+.topNav a:hover {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border: 1px solid black
+}
+
+.mainNav {
+    background-image: url(/banner.png);
+    border: 3px solid orangered 
+}
+
+ul {
+    width: 200px;
+    border: 2px dashed darkgray;
+    color: white;
+}
+
+.careers a {
+    font-size: 17px;
+    overflow: hidden;
+    text-decoration: none;
+    color: white;
+}
+
+.careers li:hover {
+    font-size: 17px;
+    background-color: orangered;
+    overflow:hidden;
+    text-decoration: none;
+    padding-left: 20px;
+    padding-right: 20px;
+}
