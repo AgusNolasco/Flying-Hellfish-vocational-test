@@ -1,15 +1,28 @@
 <!DOCTYPE html>
-  
+
 <html>
     <head>
-        <title>
-          Vocational Test
-        </title>
+        <title> Vocational Test </title>
+        <link rel="stylesheet" type="text/css" href='/landing_page.css'/>
     </head>
     <body>
-        <h1>
-            Welcome to Vocational Test by FlyingHellfish!
-        </h1>
+        <nav class='mainNav'>
+            <div height='100px'>
+                <a href='/'>
+                    <img id='logo' src='/Flying_Hellfish_Logo.png'/>
+                </a>
+                <h1 id='mainTitle'>
+                    Welcome to Vocational Test by FlyingHellfish!
+                </h1>
+                <div class='topNav'>
+                    <a href='/'>Home</a>
+                    <a href='/careers'>Careers</a>
+                    <a href='/surveys'>Surveys</a>
+                </div>
+            </div>
+        </nav>
+       <br>
+       <br>
         <form action='/surveys' method='POST'>
             <input type='text' name='username' value='Insert Username'>
             <input type='submit' value='Register'>
