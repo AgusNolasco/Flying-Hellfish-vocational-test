@@ -33,11 +33,9 @@
     <ul class='careers'> 
       <% items = @careers.map { |career| %> 
         <li> 
-          <div>
             <a href=/careers/<%=career.id%>>
-            <%=career.name%>
+              <%=career.name%>
             </a>
-          </div> 
         </li> <br>
         <% } %>
         <% items.join %>
