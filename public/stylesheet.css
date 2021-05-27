@@ -1,0 +1,214 @@
+body {
+    background-color: #333;
+}
+
+#logo{
+    position:relative;
+    padding: 3px;
+    height: 100px;
+    width: 100px;
+}
+
+#mainTitle{
+    position: relative;
+    left: 16px;
+}
+
+#vuelvans{
+    color: white;
+}
+
+
+/*Small navigation bar*/
+.topNav {
+    overflow: hidden;
+    background-color: #f44336;    
+  }
+
+.topNav a {
+    color: #ffffff;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    transition-duration: 0.3s;
+  }
+
+.topNav a:hover {
+    background-color: rgb(255, 255, 255);
+    color: #f44336;
+    border: 1px solid black;
+}
+
+
+/*Big banner*/
+.mainNav {
+    background-image: url(/banner.png);
+    border: 3px solid #f44336; 
+}
+
+
+/*Careers recuadro ?)*/
+ul {
+    background-color: #f54d41a6;
+    width: 200px;
+    border-left-style: solid;
+    border-left-color: #f44336;
+    border-left-width: 15px;
+    color: white;
+}
+
+
+/*Button style*/
+.button {
+    background-color: #f44336;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    transition-duration: 0.3s;
+  }
+
+.button:hover{
+    background-color: white;
+    color: #f44336;
+    cursor: pointer;
+}
+
+
+/*Career list style*/
+.careers a {
+    color: white;
+}
+
+.careers li{
+    font-size: 17px;
+    transition-duration: 0.3s;
+}
+
+.careers li:hover {
+    font-size: 17px;
+    background-color: #f44336;
+    border-radius: 2px;
+    overflow:hidden;
+    text-decoration: none;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+
+/*Label Style*/
+.label {
+    font-size: 25px;
+    color: white;
+}
+
+
+/*Input Styles*/
+input[type='text']{
+    padding: 12px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border-radius: 2px;
+    border: none;
+    background: #f7736a93;
+}
+
+input[type='text']:focus{
+    background: #f7736a56;
+    border: none;
+}
+
+
+::placeholder{
+    color: white;
+    opacity: 0.5;
+}
+
+
+/*Questions Styles*/
+.quesTitle{
+    padding: 10px;
+    width: 35%;
+    background-color: #f1574ca6;
+    font-size: 25px;
+    color:rgb(255, 255, 255);
+    border-radius: 15px;
+    overflow-wrap: break-word;
+}
+
+.qDesc{
+    font-size: 20px;
+    color:rgb(255, 255, 255)
+}
+
+/*Options Style*/
+.container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 21px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: white;
+  }
+  
+  /* Hide the browser's default radio button */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+  
+  /* Create a custom radio button */
+  .checkmark {
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    height: 14px;
+    width: 14px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+  
+  /* On mouse-over, add a grey background color */
+  .container:hover input ~ .checkmark {
+    background-color: #ccc;
+  }
+  
+  /* When the radio button is checked, add a blue background */
+  .container input:checked ~ .checkmark {
+    background-color: #f44336;
+  }
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the indicator (dot/circle) */
+  .container .checkmark:after {
+    top: 3px;
+    left: 3px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: white;
+  }
