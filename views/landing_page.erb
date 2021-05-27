@@ -3,7 +3,7 @@
 <html>
     <head>
         <title> Vocational Test </title>
-        <link rel="stylesheet" type="text/css" href='/landing_page.css'/>
+        <link rel="stylesheet" type="text/css" href='/stylesheet.css'/>
     </head>
     <body>
         <nav class='mainNav'>
@@ -24,8 +24,9 @@
        <br>
        <br>
         <form action='/surveys' method='POST'>
-            <input type='text' name='username' value='Insert Username'>
-            <input type='submit' value='Register'>
+            <label class='label' for="username"><b>Insert Username</b></label> <br>
+            <input type='text' name='username' placeholder='Insert Username' required>
+            <input class='button' type='submit' value='Register'>
         </form>
     </body>
 </html>
