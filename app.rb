@@ -5,12 +5,12 @@ class App < Sinatra::Base
     erb :landing_page
   end
 
-  get "/hello/:name" do
+  get '/hello/:name' do
     @name = params[:name]
     erb :hello_template
   end
 
-  post "/careers" do
+  post '/careers' do
     data = request.body.read
     career = Career.new(name: params[:name])
     if career.save
@@ -36,8 +36,12 @@ class App < Sinatra::Base
     survey = Survey.new(username: params[:username])
     if survey.save
       [201, { 'Location' => "surveys/#{survey.id}" }, 'CREATED']
-      first_question_id = Question.first.id
-      redirect "/questions/#{first_question_id}"
+      if Question.first
+        first_question_id = Question.first.id
+        redirect "/questions/#{first_question_id}"
+      else
+        redirect '/finish'
+      end
     else
       [500, {}, 'Internal Server Error']
     end
@@ -52,8 +56,8 @@ class App < Sinatra::Base
   	if params[:id].to_i > Question.last.id 
     	redirect '/finish'
     end
-    if Question.find(id: params[:id]) == nil
-    	redirect "/questions/#{(params[:id]) + 1}"
+    if Question.find(id: params[:id]).nil?
+    	redirect "/questions/#{(params[:id].to_i) + 1}"
     end
     @question = Question.find(id: params[:id])
     erb :questions_template
@@ -69,7 +73,7 @@ class App < Sinatra::Base
     end
   end
 
-  post "/posts" do
+  post '/posts' do
     request.body.rewind  # in case someone already read it
     data = JSON.parse request.body.read
     post = Post.new(description: data['desc'])
