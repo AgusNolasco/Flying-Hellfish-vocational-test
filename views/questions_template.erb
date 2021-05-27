@@ -1,50 +1,52 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <title> Vocational Test </title>
-        <link rel="stylesheet" type="text/css" href='/stylesheet.css'/>
-    </head>
-    
-    <body>
-        <nav class='mainNav'>
-            <div height='100px'>
-                <a href='/'>
-                    <img id='logo' src='/Flying_Hellfish_Logo.png'/>
-                </a>
-                <h1 id='mainTitle'>
-                    Taking the test
-                </h1>
-                <div class='topNav'>
-                    <a href='/'>Home</a>
-                    <a href='/careers'>Careers</a>
-                    <a href='/surveys'>Surveys</a>
-                </div>
-            </div>  
-        </nav>
-        <br>
-        <div class='quesTitle'>
-            <a class='qTitle'> <%= @question.number %>) <%= @question.name %> </a> 
-            <hr>
-            <a class='qDesc'> <%= @question.description %> </a> <br>
+  <head>
+    <title> Vocational Test </title>
+    <link rel="stylesheet" type="text/css" href='/stylesheet.css'/>
+  </head>
+
+  <body>
+    <nav class='mainNav'>
+      <div height='100px'>
+        <a href='/'>
+          <img id='logo' src='/Flying_Hellfish_Logo.png'/>
+        </a>
+        <h1 id='mainTitle'>
+          Taking the test
+        </h1>
+        <div class='topNav'>
+          <a href='/'>Home</a>
+          <a href='/careers'>Careers</a>
+          <a href='/surveys'>Surveys</a>
         </div>
-        <br>
-        <div>
-            <form action='/responses' method='POST'>
-            <label class="container">Option 1
-                <input type="radio" checked="checked" name="answer" value= 1>
-                <span class="checkmark"></span>
-            </label>
-            <label class="container">Option 2
-                <input type="radio" name="answer" value= 2>
-                <span class="checkmark"></span>
-            </label>
-            <label class="container">Option 3
-                <input type="radio" name="answer" value= 3>
-                <span class="checkmark"></span>
-            </label>
-                <button class='button' type='submit' name='question_id' value='<%= @question.id%>' > Next </button> 
-            </form>
-        </div>
-    </body>
+      </div>  
+    </nav>
+    <br>
+    <div class='quesTitle'>
+      <a class='qTitle'> <%= @survey_id %>) </a> 
+      <hr>
+      <a class='qTitle'> <%= @question.number %>) <%= @question.name %> </a> 
+      <hr>
+      <a class='qDesc'> <%= @question.description %> </a> <br>
+    </div>
+    <br>
+    <div>
+      <form action='/responses/<%= @survey_id.to_s %>' method='POST'>
+        <label class="container"><%= @question.choices[0].text %>
+          <input type="radio" checked="checked" name="choice_id" value=<%= @question.choices[0].id %>>
+          <span class="checkmark"></span>
+        </label>
+        <label class="container"><%= @question.choices[1].text %>
+          <input type="radio" name="choice_id" value=<%= @question.choices[1].id %>>
+          <span class="checkmark"></span>
+        </label>
+        <label class="container"><%= @question.choices[2].text %>
+          <input type="radio" name="choice_id" value=<%= @question.choices[2].id %>>
+          <span class="checkmark"></span>
+        </label>
+        <button class='button' type='submit' name='question_id' value='<%= @question.id %>' > Next </button> 
+      </form>
+    </div>
+  </body>
 </html>

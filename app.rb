@@ -37,8 +37,8 @@ class App < Sinatra::Base
     if survey.save
       [201, { 'Location' => "surveys/#{survey.id}" }, 'CREATED']
       if Question.first
-        first_question_id = Question.first.id
-        redirect "/questions/#{first_question_id}"
+        first_question_id = Question.first.id 
+        redirect to("/questions/#{first_question_id}?survey_id=#{survey.id}")
       else
         redirect '/finish'
       end
@@ -57,17 +57,18 @@ class App < Sinatra::Base
     	redirect '/finish'
     end
     if Question.find(id: params[:id]).nil?
-    	redirect "/questions/#{(params[:id].to_i) + 1}"
+    	redirect to("/questions/#{(params[:id].to_i) + 1}?survey_id=#{params[:survey_id]}")
     end
     @question = Question.find(id: params[:id])
+    @survey_id = params[:survey_id]
     erb :questions_template
   end
 
-  post '/responses' do
-    response = Response.create(question_id: params[:question_id], choice_id: params[:answer], survey_id: 1)
+  post '/responses/:survey_id' do
+    response = Response.create(question_id: params[:question_id], choice_id: params[:choice_id], survey_id: params[:survey_id])
     if response.save
       [201, { 'Location' => "responses/#{response.id}" }, 'CREATED']
-      redirect "/questions/#{((response.question_id) + 1)}"
+      redirect to("/questions/#{((response.question_id) + 1)}?survey_id=#{params[:survey_id]}")
     else
       [500, {}, 'Internal Server Error']
     end
