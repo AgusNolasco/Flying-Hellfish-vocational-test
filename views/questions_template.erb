@@ -33,18 +33,12 @@
     <br>
     <div>
       <form action='/responses/<%= @survey_id.to_s %>' method='POST'>
-        <label class="container"><%= @question.choices[0].text %>
-          <input type="radio" checked="checked" name="choice_id" value=<%= @question.choices[0].id %>>
-          <span class="checkmark"></span>
-        </label>
-        <label class="container"><%= @question.choices[1].text %>
-          <input type="radio" name="choice_id" value=<%= @question.choices[1].id %>>
-          <span class="checkmark"></span>
-        </label>
-        <label class="container"><%= @question.choices[2].text %>
-          <input type="radio" name="choice_id" value=<%= @question.choices[2].id %>>
-          <span class="checkmark"></span>
-        </label>
+		<% @question.choices.each do |choice| %>
+			<label class="container"><%= choice.text %>
+				<input type="radio" name="choice_id" value=<%= choice.id %>>
+				<span class="checkmark"></span>
+			</label>
+		<% end %>
         <button class='button' type='submit' name='question_id' value='<%= @question.id %>' > Next </button> 
       </form>
     </div>
