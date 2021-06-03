@@ -54,7 +54,7 @@ class App < Sinatra::Base
 
   get '/questions/:id' do
   	if params[:id].to_i > Question.last.id 
-    	redirect '/finish'
+      redirect "/finish/#{params[:survey_id]}"
     end
     if Question.find(id: params[:id]).nil?
     	redirect to("/questions/#{(params[:id].to_i) + 1}?survey_id=#{params[:survey_id]}")
@@ -90,7 +90,24 @@ class App < Sinatra::Base
     p.description
   end
   
-  get '/finish' do
-  	erb :finish_template 
+  get '/finish/:survey_id' do
+    @survey = Survey.find(:id => params[:survey_id])
+    careersCount = Hash.new
+    for c in Career.all
+      careersCount[c.id] = 0
+    end
+    
+    for r in @survey.responses
+      choice = Choice.find(id: r.choice_id)
+      for o in choice.outcomes
+        careersCount[o.career_id] = careersCount[o.career_id] + 1
+      end
+    end
+
+    max_ocurrences_career_id = careersCount.key(careersCount.values.max)
+    @survey.career_id = max_ocurrences_career_id
+    @career = Career.find(id: @survey.career_id)
+
+    erb :finish_template 
   end
 end
