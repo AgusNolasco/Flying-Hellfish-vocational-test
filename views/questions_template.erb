@@ -2,8 +2,12 @@
 
 <html>
   <head>
-    <title> Vocational Test </title>
+    <title> Test Vocacional </title>
     <link rel="stylesheet" type="text/css" href='/stylesheet.css'/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
   </head>
 
   <body>
@@ -13,19 +17,16 @@
           <img id='logo' src='/Flying_Hellfish_Logo.png'/>
         </a>
         <h1 id='mainTitle'>
-          Taking the test
+          Tomando el Test
         </h1>
         <div class='topNav'>
-          <a href='/'>Home</a>
-          <a href='/careers'>Careers</a>
-          <a href='/surveys'>Surveys</a>
+          <a href='/'>Inicio</a>
+          <a href='/careers'>Carreras</a>
         </div>
       </div>  
     </nav>
     <br>
     <div class='quesTitle'>
-      <a class='qTitle'> <%= @survey_id %>) </a> 
-      <hr>
       <a class='qTitle'> <%= @question.number %>) <%= @question.name %> </a> 
       <hr>
       <a class='qDesc'> <%= @question.description %> </a> <br>
@@ -35,11 +36,11 @@
       <form action='/responses/<%= @survey_id.to_s %>' method='POST'>
 		<% @question.choices.each do |choice| %>
 			<label class="container"><%= choice.text %>
-				<input type="radio" name="choice_id" value=<%= choice.id %>>
+				<input type="radio" name="choice_id" checked='checked' value=<%= choice.id %>>
 				<span class="checkmark"></span>
 			</label>
 		<% end %>
-        <button class='button' type='submit' name='question_id' value='<%= @question.id %>' > Next </button> 
+        <button class='button' type='submit' name='question_id' value='<%= @question.id %>' > Siguiente </button> 
       </form>
     </div>
   </body>

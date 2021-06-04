@@ -1,29 +1,33 @@
 <!DOCTYPE html>
 
 <html>
-    <head>
-        <title> Vocational Test </title>
-        <link rel="stylesheet" type="text/css" href='/stylesheet.css'/>
-    </head>
-    <body>
-        <nav class='mainNav'>
-            <div height='100px'>
-                <a href='/'>
-                    <img id='logo' src='/Flying_Hellfish_Logo.png'/>
-                </a>
-                <h1 id='mainTitle'>
-                    You finished your test!
-                </h1>
-                <div class='topNav'>
-                    <a href='/'>Home</a>
-                    <a href='/careers'>Careers</a>
-                    <a href='/surveys'>Surveys</a>
-                </div>
-            </div>
-        </nav>
-        <br>
-        <a id='vuelvans'> Thanks for participating, come laters! </a>
-        <a> Usuario: <%= @survey.username %> </a>
-        <a> Carrera sugerida: <%= @career.name %> </a>
+  <head>
+    <title> Test Vocacional </title>
+    <link rel="stylesheet" type="text/css" href='/stylesheet.css'/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  </head>
+
+  <body>
+    <nav class='mainNav'>
+      <div height='100px'>
+        <a href='/'>
+          <img id='logo' src='/Flying_Hellfish_Logo.png'/>
+        </a>
+        <h1 id='mainTitle'>
+          Test Finalizado
+        </h1>
+        <div class='topNav'>
+          <a href='/'>Inicio</a>
+          <a href='/careers'>Carreras</a>
+        </div>
+      </div>  
+    </nav>
+    <br>
+        <a id='vuelvans'> Gracias por participar, vuelva prontos! </a>
+        <a class='txt'> Usuario: <%= @survey.username %> </a>
+        <a href=<%=@career.ref%> target='_blank'> Carrera sugerida: <%= @career.name %> </a>
     </body>
 </html>

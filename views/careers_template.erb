@@ -17,7 +17,7 @@
           <img id='logo' src='/Flying_Hellfish_Logo.png'/>
         </a>
         <h1 id='mainTitle'>
-          Bienvenido al Test Vocacional de FlyingHellfish!
+          Carreras
         </h1>
         <div class='topNav'>
           <a href='/'>Inicio</a>
@@ -26,11 +26,10 @@
       </div>  
     </nav>
     <br>
-       <br>
-        <form action='/surveys' method='POST'>
-            <label class='label' for="username"><b>Ingrese nombre de Usuario</b></label> <br>
-            <input type='text' name='username' placeholder='Nombre de Usuario' required>
-            <input class='button' type='submit' value='Guardar'>
-        </form>
+
+    <h2 id='vuelvans' color='white'> Click en la imagen para obtener mas informacion de tu carrera </h2>
+    <a class='careerImg' href=<%= @career.ref%>>
+        <img src='/<%=@career.name%>.jpg' target='_blank'/>
+    </a> 
     </body>
 </html>
