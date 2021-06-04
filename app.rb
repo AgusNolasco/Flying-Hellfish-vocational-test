@@ -27,8 +27,8 @@ class App < Sinatra::Base
   end
 
   get '/careers/:id' do
-    career = Career.find(id: params[:id])
-    "Career's name: #{career.name}"
+    @career = Career.find(id: params[:id])
+    erb :careers_template
   end
 
   post '/surveys' do

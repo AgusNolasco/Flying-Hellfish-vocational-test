@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 
 <html>
-  <head> 
-    <title> Vocational Test </title>
+  <head>
+    <title> Test Vocacional </title>
     <link rel="stylesheet" type="text/css" href='/stylesheet.css'/>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
   </head>
-  
-  <body>
 
+  <body>
     <nav class='mainNav'>
       <div height='100px'>
-        <a href='/'>  
-          <img id='logo' src='/Flying_Hellfish_Logo.png' href='/'/>
+        <a href='/'>
+          <img id='logo' src='/Flying_Hellfish_Logo.png'/>
         </a>
-        <h1 id='mainTitle'> Careers </h1>
+        <h1 id='mainTitle'>
+          Carreras
+        </h1>
         <div class='topNav'>
-            <a href='/'>Home</a>
-            <a href='/careers'>Careers</a>
-            <a href='/surveys'>Surveys</a>
+          <a href='/'>Inicio</a>
+          <a href='/careers'>Carreras</a>
         </div>
-      </div>
+      </div>  
     </nav>
-    
     <br>
 
     <form action='/careers' method='POST'>
-      <label class='label' for="name"><b>Insert Career</b></label> <br>
-      <input type='text' name='name' placeholder='Career name' required>
-      <input class='button' type='submit' value='Load'>
+      <label class='label' for="name"><b>Ingrese una Carrera</b></label> <br>
+      <input type='text' name='name' placeholder='Nombre de la Carrera' required>
+      <input class='button' type='submit' value='Cargar'>
     </form>
 
     <ul class='careers'> 
