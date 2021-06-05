@@ -14,10 +14,6 @@ body {
   left: 16px;
 }
 
-#vuelvans{
-  color: white;
-}
-
 
 /*Small navigation bar*/
 .topNav {
@@ -101,6 +97,80 @@ margin-left: 20px;
   text-decoration: none;
   padding-left: 40px;
   padding-right: 20px;
+}
+
+
+/*Careers Template Style*/
+.careerPage {
+  padding: auto;
+  margin: auto;
+  text-align: centre;
+}
+
+.careerPage img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 3px solid #f44336;
+  padding: 10px;
+  background-color: #f7736a93;
+  border-radius: 10px;
+  width: 50%;
+}
+
+.careerPage h2 {
+  color: white;
+  text-align: center;
+}
+
+
+/*Finish Page Style*/
+.finishText {
+  background-color: #f54d41a6;
+  border: 3px solid #f44336;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  padding: auto;
+  margin: auto;
+  width: 25%;
+}
+
+.finishText a {
+  color: white;
+  transition-duration: 0.3s;
+}
+
+.finishText a:hover {
+  background-color: #f44336;
+}
+
+.finishText p {
+  color: white;
+}
+
+
+/*No Question Style*/
+.nq {
+  background-color: #f54d41a6;
+  border: 3px solid #f44336;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  padding: auto;
+  margin: auto;
+}
+
+.nq p{
+  color: white;
+  text-align: center;
+}
+
+.nq img{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15%;
 }
 
 
