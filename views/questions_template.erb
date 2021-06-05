@@ -3,11 +3,11 @@
 <html>
   <head>
     <title> Test Vocacional </title>
-    <link rel="stylesheet" type="text/css" href='/stylesheet.css'/>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel='stylesheet' type='text/css' href='/stylesheet.css'/>
+    <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png'>
+    <link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png'>
+    <link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png'>
+    <link rel='manifest' href='/site.webmanifest'>
   </head>
 
   <body>
@@ -35,9 +35,9 @@
     <div>
       <form action='/responses/<%= @survey_id.to_s %>' method='POST'>
 		<% @question.choices.each do |choice| %>
-			<label class="container"><%= choice.text %>
-				<input type="radio" name="choice_id" checked='checked' value=<%= choice.id %>>
-				<span class="checkmark"></span>
+			<label class='container'><%= choice.text %>
+				<input type='radio' name='choice_id' checked='checked' value=<%= choice.id %>>
+				<span class='checkmark'></span>
 			</label>
 		<% end %>
         <button class='button' type='submit' name='question_id' value='<%= @question.id %>' > Siguiente </button> 

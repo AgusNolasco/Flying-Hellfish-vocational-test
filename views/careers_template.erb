@@ -3,11 +3,11 @@
 <html>
   <head>
     <title> Test Vocacional </title>
-    <link rel="stylesheet" type="text/css" href='/stylesheet.css'/>
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
+    <link rel='stylesheet' type='text/css' href='/stylesheet.css'/>
+    <link rel='apple-touch-icon' sizes='180x180' href='/apple-touch-icon.png'>
+    <link rel='icon' type='image/png' sizes='32x32' href='/favicon-32x32.png'>
+    <link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png'>
+    <link rel='manifest' href='/site.webmanifest'>
   </head>
 
   <body>
@@ -27,9 +27,13 @@
     </nav>
     <br>
 
-    <h2 id='vuelvans'> Click en la imagen para obtener mas informacion de tu carrera </h2>
-    <a class='careerImg' href=<%= @career.ref%> target='_blank'>
-        <img src='/<%=@career.name%>.jpg'/>
-    </a> 
-    </body>
+    <div class='careerPage'> 
+      <h2> Click en la imagen para obtener mas informacion sobre <%= @career.name%></h2>
+      <div>
+        <a href=<%= @career.ref%> target='_blank'>
+          <img src='/<%=@career.name%>.jpg'/>
+        </a>
+      </div> 
+    </div>
+  </body>
 </html>
