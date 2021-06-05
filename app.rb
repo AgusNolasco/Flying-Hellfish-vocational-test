@@ -34,21 +34,21 @@ class App < Sinatra::Base
   post '/surveys' do
     data = request.body.read
     survey = Survey.new(username: params[:username])
-    if survey.save
-      [201, { 'Location' => "surveys/#{survey.id}" }, 'CREATED']
-      if Question.first
-        first_question_id = Question.first.id 
-        redirect to("/questions/#{first_question_id}?survey_id=#{survey.id}")
+    if Question.first
+      if survey.save
+        [201, { 'Location' => "surveys/#{survey.id}" }, 'CREATED']
       else
-        redirect '/finish'
+        [500, {}, 'Internal Server Error']
       end
+      first_question_id = Question.first.id 
+      redirect to("/questions/#{first_question_id}?survey_id=#{survey.id}")
     else
-      [500, {}, 'Internal Server Error']
+      redirect '/finish'
     end
   end
 
   get '/surveys' do
-    survey = Survey.all.map {|surv| surv.username}
+    survey = Survey.all.map { |s| s.username }
     survey
   end
 
