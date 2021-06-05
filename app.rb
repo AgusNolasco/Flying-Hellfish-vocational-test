@@ -105,7 +105,7 @@ class App < Sinatra::Base
     end
 
     max_ocurrences_career_id = careersCount.key(careersCount.values.max)
-    @survey.career_id = max_ocurrences_career_id
+    @survey.update(career_id: max_ocurrences_career_id)
     @career = Career.find(id: @survey.career_id)
 
     erb :finish_template 
