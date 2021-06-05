@@ -89,7 +89,11 @@ class App < Sinatra::Base
     p = Post.where(id: 1).last
     p.description
   end
-  
+
+  get '/finish' do
+    erb :no_question_template
+  end
+
   get '/finish/:survey_id' do
     @survey = Survey.find(:id => params[:survey_id])
     careersCount = Hash.new
