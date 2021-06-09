@@ -1,0 +1,40 @@
+1,Si
+1,No
+2,Si
+2,No
+3,Si
+3,No
+4,Si
+4,No
+5,Si
+5,No
+6,Si
+6,No
+7,Si
+7,No
+8,Si
+8,No
+9,Si
+9,No
+10,Si
+10,No
+11,Si
+11,No
+12,Si
+12,No
+13;La importancia de la expresión artística en el desarrollo de la identidad de los pueblos.
+13;La arqueología urbana como forma de aprender acerca de la historia cultural de una ciudad.
+13;La tecnología satelital en un proyecto para descubrir actividad volcánica para prevenir catástrofes climáticas.
+13;Ninguna de las opciones.
+14;La práctica de deportes y su influencia positiva en el estado de ánimo de las personas.
+14;Los pensadores del siglo XX y su aporte a la gestión de las organizaciones.
+14;Las mascotas y su incidencia en la calidad de vida de las personas no videntes.
+14;El uso de la PC como herramienta para el control de los procesos industriales.
+14;Procesos productivos de una empresa.
+14;Ninguna de las opciones.
+15;Director de una investigación técnico científica.
+15;Gerente general de una empresa reconocida por su responsabilidad social.
+15;Un deportista famoso por su destreza física y su ética profesional.
+15;Experto en la detección precoz de enfermedades neurológicas en niños.
+15;Un agente de prensa audaz, número uno en el ranking de notas a celebridades.
+15;Ninguna de las opciones.
