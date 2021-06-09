@@ -1,0 +1,15 @@
+1;Me trasladaría a una zona agrícola - ganadera para ejercer mi profesión.;Pregunta 1 
+2;Tengo buena memoria y no me cuesta estudiar y retener fórmulas y palabras técnicas.;Pregunta 2
+3;Me gusta escribir. En general mis trabajos son largos y están bien organizados.;Pregunta 3
+4;Sé quien es Steven Hawking: Conozco y me atraen sus descubrimientos.;Pregunta 4
+5;Me actualizo respecto de los avances tecnológicos y me intereso por investigar y conocer.;Pregunta 5
+6;Sé quien es Andy Warhol y a qué movimiento artístico pertenece. Me apasiona conocer acerca del arte y sus exponentes.;Pregunta 6
+7;En general me intereso por las dificultades que ha tenido que atravesar la humanidad y cómo lo ha superado.;Pregunta 7
+8;Me apasiona leer y no me importa si el libro que elijo tiene muchas páginas, para mí es un gran entretenimiento.;Pregunta 8
+9;Me atrae conocer los procesos y las áreas que hacen funcionar a las empresas.;Pregunta 9
+10;Me siento identificado con el pensamiento de algunos filósofos y escritores.;Pregunta 10
+11;Me encanta estudiar el cuerpo humano y conocer cómo funciona. Además, no me impresiona la sangre.;Pregunta 11
+12;Si pudiera elegir, pasaría mucho tiempo diseñando novedosos objetos o edificios en mi computadora.;Pregunta 12
+13;Si mi blog fuera temático, trataría acerca de: ;Pregunta 13
+14;Integraría un equipo de trabajo encargado de producir un audiovisual sobre: ;Pregunta 14
+15;Sería importante destacarme como: ;Pregunta 15
