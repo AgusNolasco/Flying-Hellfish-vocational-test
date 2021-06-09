@@ -1,0 +1,17 @@
+Agronomia;https://www.unrc.edu.ar/unrc/carreras/ayv_ingenieria_agronomica.htm
+Arquitectura;https://um.edu.ar/carreras/arquitectura-y-urbanismo/#
+Arte;https://isbapierini-cba.infd.edu.ar/sitio/plan-de-estudios/
+Computación;https://www.unrc.edu.ar/unrc/carreras/exa_lic_ciencias_computacion.php
+Economía;https://www.unrc.edu.ar/unrc/carreras/eco_lic_economia.htm
+Educación física;https://www.unrc.edu.ar/unrc/carreras/hum_prof_educacion_fisica.php
+Filosofía;https://www.unrc.edu.ar/unrc/carreras/hum_lic_en_filosofia.php
+Física;https://www.unrc.edu.ar/unrc/carreras/exa_prof_fisica.php
+Geología;https://www.unrc.edu.ar/unrc/carreras/exa_lic_geologia.php
+Historia;https://www.unrc.edu.ar/unrc/carreras/hum_lic_historia.php
+Literatura;https://www.unrc.edu.ar/unrc/carreras/hum_prof_lengua_y_literatura.php
+Matemáticas;https://www.unrc.edu.ar/unrc/carreras/exa_lic_matematica.php
+Medicina;https://fcm.unc.edu.ar/carrera-de-medicina/
+Periodismo;https://fcc.unc.edu.ar/fcc-carreras/licenciatura
+Química;https://www.unrc.edu.ar/unrc/carreras/exa_lic_quimica.php
+Sociología;https://sociales.unc.edu.ar/licenciaturasociologia
+Veterinaria;https://www.unrc.edu.ar/unrc/carreras/ayv_medicina_veterinaria.htm
