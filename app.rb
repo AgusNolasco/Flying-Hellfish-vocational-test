@@ -101,7 +101,7 @@ class App < Sinatra::Base
     for r in @survey.responses
       choice = Choice.find(id: r.choice_id)
       for o in choice.outcomes
-        careersCount[o.career_id] = careersCount[o.career_id] + 1
+        careersCount[o.career_id] += 1
       end
     end
 
