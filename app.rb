@@ -46,18 +46,7 @@ class App < Sinatra::Base
     end
   end
 
-  get '/questions/:id' do
-  	if params[:id].to_i > Question.last.id #Check if the last question was asked 
-      redirect "/finish/#{params[:survey_id]}"
-    end
-    
-    if params[:id].to_i < Question.first.id
-      redirect to("/questions/#{(params[:id].to_i)}")
-    end
-    
-    if Question.find(id: params[:id]).nil? #Check if the currect question(id) is nil
-    	redirect to("/questions/#{(params[:id].to_i)}?survey_id=#{params[:survey_id]}")
-    end
+  get '/questions/:id' do 
     @question = Question.find(id: params[:id])
     @survey_id = params[:survey_id]
     erb :questions_template
@@ -68,7 +57,11 @@ class App < Sinatra::Base
     if response.save
       [201, { 'Location' => "responses/#{response.id}" }, 'CREATED']
       #Redirect us to the next question
-      redirect to("/questions/#{((response.question_id) + 1)}?survey_id=#{params[:survey_id]}")
+      next_question = response.question.next
+      if next_question.nil?
+        redirect "/finish/#{params[:survey_id]}"
+      end
+      redirect to("/questions/#{(next_question.id)}?survey_id=#{params[:survey_id]}")
     else
       [500, {}, 'Internal Server Error']
     end
