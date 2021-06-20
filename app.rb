@@ -92,23 +92,8 @@ class App < Sinatra::Base
 
   get '/finish/:survey_id' do
     @survey = Survey.find(:id => params[:survey_id])
-    #Use a HashMap to index the careers
-    careersCount = Hash.new
-    for c in Career.all
-      careersCount[c.id] = 0
-    end
-    
-    for r in @survey.responses
-      choice = Choice.find(id: r.choice_id)
-      for o in choice.outcomes
-        careersCount[o.career_id] += 1
-      end
-    end
-
-    max_ocurrences_career_id = careersCount.key(careersCount.values.max)
-    @survey.update(career_id: max_ocurrences_career_id)
+    @survey.compute_result(Career.all)
     @career = Career.find(id: @survey.career_id)
-
     erb :finish_template 
   end
 end

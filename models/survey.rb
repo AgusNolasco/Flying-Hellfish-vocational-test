@@ -6,4 +6,23 @@ class Survey < Sequel::Model
 		super
 		errors.add(:username, :name => 'username can not be nil or empty') if username.nil? || username.empty?
 	end
+
+    #Compute the result of a Survey
+    def compute_result(careers)
+      #Use a HashMap to index the careers
+      careers_count = Hash.new
+      for c in careers
+        careers_count[c.id] = 0
+      end
+      
+      for r in self.responses
+        choice = Choice.find(id: r.choice_id)
+        for o in choice.outcomes
+          careers_count[o.career_id] += 1
+        end
+      end
+      
+      max_ocurrences_career_id = careers_count.key(careers_count.values.max)
+      self.update(career_id: max_ocurrences_career_id) 
+    end
 end
