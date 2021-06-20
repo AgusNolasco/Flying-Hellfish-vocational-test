@@ -8,10 +8,10 @@ class Survey < Sequel::Model
 	end
 
     #Compute the result of a Survey
-    def compute_result(careers)
+    def compute_result
       #Use a HashMap to index the careers
       careers_count = Hash.new
-      for c in careers
+      for c in Career.all
         careers_count[c.id] = 0
       end
       

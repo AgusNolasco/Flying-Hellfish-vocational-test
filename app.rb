@@ -50,8 +50,13 @@ class App < Sinatra::Base
   	if params[:id].to_i > Question.last.id #Check if the last question was asked 
       redirect "/finish/#{params[:survey_id]}"
     end
+    
+    if params[:id].to_i < Question.first.id
+      redirect to("/questions/#{(params[:id].to_i)}")
+    end
+    
     if Question.find(id: params[:id]).nil? #Check if the currect question(id) is nil
-    	redirect to("/questions/#{(params[:id].to_i) + 1}?survey_id=#{params[:survey_id]}")
+    	redirect to("/questions/#{(params[:id].to_i)}?survey_id=#{params[:survey_id]}")
     end
     @question = Question.find(id: params[:id])
     @survey_id = params[:survey_id]
@@ -92,7 +97,7 @@ class App < Sinatra::Base
 
   get '/finish/:survey_id' do
     @survey = Survey.find(:id => params[:survey_id])
-    @survey.compute_result(Career.all)
+    @survey.compute_result
     @career = Career.find(id: @survey.career_id)
     erb :finish_template 
   end
