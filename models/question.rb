@@ -24,4 +24,8 @@ class Question < Sequel::Model
     return prev_question
   end
 
+  def answered?(survey_id)
+    response = Response.find(survey_id: survey_id, question_id: self.id)
+    return (not (response.nil?))
+  end
 end 
