@@ -34,13 +34,20 @@
     <br>
     <div>
       <form action='/responses/<%= @survey_id.to_s %>' method='POST'>
-		<% @question.choices.each do |choice| %>
-			<label class='container'><%= choice.text %>
-				<input type='radio' name='choice_id' checked='checked' value=<%= choice.id %>>
-				<span class='checkmark'></span>
-			</label>
-		<% end %>
-        <button class='button' type='submit' name='question_id' value='<%= @question.id %>' > Siguiente </button> 
+      <input type='hidden' name='question_id' value='<%= @question.id %>' >
+		    <% @question.choices.each do |choice| %>
+			    <label class='container'><%= choice.text %>
+				    <input type='radio' name='choice_id' checked='checked' value=<%= choice.id %> >
+				    <span class='checkmark'></span>
+			    </label>
+		    <% end %>
+        <% if @question.id != Question.first.id %>
+          <% if @question.answered?(@survey_id.to_i) %>
+            <input type='hidden' name='_method' value='PATCH'>
+          <% end %>
+          <button class='button' type='submit' name='next_question' value='false'> Atras </button>
+        <% end %>
+        <button class='button' type='submit' name='next_question' value='true' > Siguiente </button> 
       </form>
     </div>
   </body>

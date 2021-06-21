@@ -1,6 +1,7 @@
 require './models/init.rb'
 
 class App < Sinatra::Base
+  set :method_override, true
 
   get '/' do
     erb :landing_page
@@ -52,16 +53,40 @@ class App < Sinatra::Base
     erb :questions_template
   end
 
+  patch '/responses/:survey_id' do
+    response = Response.find(survey_id: params[:survey_id], question_id: params[:question_id])
+    response.update(survey_id: params[:survey_id], question_id: params[:question_id], choice_id: params[:choice_id])
+    if response.save
+      [201, { 'Location' => "responses/#{response.id}" }, 'UPDATED']
+      #Redirect us to the next question
+      if (params[:next_question] == 'true')
+        question = response.question.next
+      else
+        question = response.question.prev
+      end
+      if question.nil?
+        redirect "/finish/#{params[:survey_id]}"
+      end
+      redirect to("/questions/#{(question.id)}?survey_id=#{params[:survey_id]}")
+    else
+      [500, {}, 'Internal Server Error']
+    end
+  end
+
   post '/responses/:survey_id' do
     response = Response.create(question_id: params[:question_id], choice_id: params[:choice_id], survey_id: params[:survey_id])
     if response.save
       [201, { 'Location' => "responses/#{response.id}" }, 'CREATED']
       #Redirect us to the next question
-      next_question = response.question.next
-      if next_question.nil?
+      if (params[:next_question] == 'true')
+        question = response.question.next
+      else
+        question = response.question.prev
+      end
+      if question.nil?
         redirect "/finish/#{params[:survey_id]}"
       end
-      redirect to("/questions/#{(next_question.id)}?survey_id=#{params[:survey_id]}")
+      redirect to("/questions/#{(question.id)}?survey_id=#{params[:survey_id]}")
     else
       [500, {}, 'Internal Server Error']
     end
