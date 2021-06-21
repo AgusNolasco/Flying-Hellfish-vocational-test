@@ -13,7 +13,7 @@ class Question < Sequel::Model
     return next_question
   end
 
-  def back
+  def prev
     prev_id = self.id - 1
     prev_question = Question.find(id: prev_id)
     while prev_id > Question.first.id and prev_question.nil?
