@@ -41,7 +41,7 @@
 				    <span class='checkmark'></span>
 			    </label>
 		    <% end %>
-        <% if @question.id != Question.first.id %>
+        <% if @question != Question.first %>
           <% if @question.answered?(@survey_id.to_i) %>
             <input type='hidden' name='_method' value='PATCH'>
           <% end %>
