@@ -22,6 +22,7 @@
         <div class='topNav'>
           <a href='/'>Inicio</a>
           <a href='/careers'>Carreras</a>
+          <a href='/surveys_info'>Estadisticas</a>
         </div>
       </div>  
     </nav>
@@ -36,15 +37,17 @@
     </form>
     -->
 
-    <ul class='careers'> 
-      <% items = @careers.map { |career| %> 
-        <li> 
+    <div class='careers'>
+      <ul> 
+        <% items = @careers.map { |career| %> 
+          <li> 
             <a href=/careers/<%=career.id%>>
               <%=career.name%>
             </a>
-        </li> <br>
-        <% } %>
-        <% items.join %>
-    </ul>
+          </li> <br>
+          <% } %>
+          <% items.join %>
+      </ul>
+    </div>
   </body>
 </html>
