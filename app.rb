@@ -72,9 +72,18 @@ class App < Sinatra::Base
       [500, {}, 'Internal Server Error']
     end
   end
-
+  
   post '/responses/:survey_id' do
-    response = Response.create(question_id: params[:question_id], choice_id: params[:choice_id], survey_id: params[:survey_id])
+    question_id = params[:question_id]
+    if (params[:choice_id].nil?)
+      question = Question.find(id: question_id)
+      if (params[:next_question] != 'true')
+        question = question.prev
+      end
+      redirect to("/questions/#{(question.id)}?survey_id=#{params[:survey_id]}")
+    end
+    
+    response = Response.create(question_id: question_id, choice_id: params[:choice_id], survey_id: params[:survey_id])
     if response.save
       [201, { 'Location' => "responses/#{response.id}" }, 'CREATED']
       #Redirect us to the next question
