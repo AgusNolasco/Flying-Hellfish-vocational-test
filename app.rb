@@ -112,6 +112,12 @@ class App < Sinatra::Base
   get '/finish' do
     erb :no_question_template
   end
+  
+  get '/surveys_info' do
+  	@careers = Career.all
+  	@survey = Survey.count
+  	erb :surveys_info_template
+  end
 
   get '/finish/:survey_id' do
     @survey = Survey.find(:id => params[:survey_id])
