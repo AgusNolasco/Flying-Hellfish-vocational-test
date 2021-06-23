@@ -65,10 +65,52 @@ body {
 }
 
 
+/*Nothing page style*/
+.nothing h1 {
+  color: white;
+}
+
+.nothing img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 3px solid #f44336;
+  padding: 10px;
+  background-color: #f7736a93;
+  border-radius: 10px;
+  width: 50%;
+}
+
+/*Surveys recuadro ?)*/
+.surveys ul {
+  background-color: #f54d41a6;
+  width: 250px;
+  border-left-style: solid;
+  border-left-color: #f44336;
+  border-left-width: 15px;
+  color: white;
+  padding: 0px;
+  margin-left: 20px;
+}
+
+/*Survey list style*/
+.surveys a {
+  font-size: 20px;
+  color: white;
+}
+
+.surveys li {
+  transition-duration: 0.3s;
+  overflow-wrap: break-word;
+  padding-left: 20px;
+  list-style-position: inside;
+}
+
+
 /*Careers recuadro ?)*/
-ul {
+.careers ul {
 background-color: #f54d41a6;
-width: 240px;
+width: 230px;
 border-left-style: solid;
 border-left-color: #f44336;
 border-left-width: 15px;
@@ -276,6 +318,11 @@ input[type='text']:focus{
 /* Show the indicator (dot/circle) when checked */
 .container input:checked ~ .checkmark:after {
   display: block;
+}
+
+.container input:noselect ~ .button {
+  background-color: grey;
+  color: black;
 }
 
 /* Style the indicator (dot/circle) */
