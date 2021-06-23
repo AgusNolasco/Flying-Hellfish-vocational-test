@@ -34,20 +34,28 @@
     <br>
     <div>
       <form action='/responses/<%= @survey_id.to_s %>' method='POST'>
-      <input type='hidden' name='question_id' value='<%= @question.id %>' >
-		    <% @question.choices.each do |choice| %>
-			    <label class='container'><%= choice.text %>
-				    <input type='radio' name='choice_id' checked='checked' value=<%= choice.id %> >
-				    <span class='checkmark'></span>
-			    </label>
-		    <% end %>
-        <% if @question != Question.first %>
-          <% if @question.answered?(@survey_id.to_i) %>
-            <input type='hidden' name='_method' value='PATCH'>
+        <input type='hidden' name='question_id' value='<%= @question.id %>' >
+        <% @question.choices.each do |choice| %>
+          <label class='container'><%= choice.text %>
+          <% if choice == @question.choiceSelected(@survey_id.to_i) %>
+            <input type='radio' name='choice_id' value=<%= choice.id %> checked>
+          <% else %>
+            <input type='radio' name='choice_id' value=<%= choice.id %>>
           <% end %>
+          <span class='checkmark'></span>
+          </label>
+        <% end %>
+        <% if @question.answered?(@survey_id.to_i) %>
+          <input type='hidden' name='_method' value='PATCH'>
+        <% end %>
+        <% if !@question.first? %>
           <button class='button' type='submit' name='next_question' value='false'> Atras </button>
         <% end %>
-        <button class='button' type='submit' name='next_question' value='true' > Siguiente </button> 
+        <% if @question.last? %>
+          <button class='button' type='submit' name='next_question' value='true' > Finalizar </button>
+        <% else %>
+          <button class='button' type='submit' name='next_question' value='true' > Siguiente </button>
+        <% end %>
       </form>
     </div>
   </body>
