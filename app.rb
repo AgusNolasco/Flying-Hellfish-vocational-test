@@ -124,8 +124,12 @@ class App < Sinatra::Base
   
   get '/surveys_info' do
   	@careers = Career.all
-  	@survey = Survey.count
-  	erb :surveys_info_template
+  	@survey_count = Survey.count_completed
+    if (@survey_count > 0)
+  	  erb :surveys_info_template
+    else
+      erb :no_surveys
+    end
   end
 
   get '/finish/:survey_id' do
