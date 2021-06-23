@@ -5,7 +5,7 @@ class Question < Sequel::Model
   def next
     next_id = self.id + 1
     next_question = Question.find(id: next_id)
-    while next_id < Question.last.id and next_question.nil?
+    while next_id < Question.last.id && next_question.nil?
       next_id += 1
       next_question = Question.find(id: next_id)
     end
@@ -16,7 +16,7 @@ class Question < Sequel::Model
   def prev
     prev_id = self.id - 1
     prev_question = Question.find(id: prev_id)
-    while prev_id > Question.first.id and prev_question.nil?
+    while prev_id > Question.first.id && prev_question.nil?
       prev_id -= 1
       prev_question = Question.find(id: prev_id)
     end
@@ -26,6 +26,23 @@ class Question < Sequel::Model
 
   def answered?(survey_id)
     response = Response.find(survey_id: survey_id, question_id: self.id)
-    return (not (response.nil?))
+    return (not response.nil?)
+  end
+
+  def choiceSelected(survey_id)
+    response = Response.find(survey_id: survey_id, question_id: self.id)
+    if response.nil?
+      return nil
+    else
+      return Choice.find(id: response.choice_id)
+    end 
+  end
+
+  def first?
+    return (self == Question.first)
+  end
+
+  def last?
+    return (self == Question.last)
   end
 end 
