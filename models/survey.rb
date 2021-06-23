@@ -25,4 +25,19 @@ class Survey < Sequel::Model
       max_ocurrences_career_id = careers_count.key(careers_count.values.max)
       self.update(career_id: max_ocurrences_career_id) 
     end
+
+    def completed?
+      return (!self.career.nil?)
+    end
+
+    def self.count_completed
+      sum = 0
+      for s in Survey.all
+        if (s.completed?)
+          sum += 1
+        end
+      end
+      return sum
+    end
+
 end
