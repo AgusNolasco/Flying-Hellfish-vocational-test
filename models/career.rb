@@ -6,5 +6,9 @@ class Career < Sequel::Model
       super
       errors.add(:name, :name => 'name can not be nil or empty') if name.nil? || name.empty?
     end
-end
+
+    def self.empty?
+      return (Career.all.count == 0)
+    end
+ end
   
