@@ -81,6 +81,45 @@ body {
   width: 50%;
 }
 
+/*Resume style*/
+.resume dt {
+  background-color: #f54d41a6;
+  border-left-style: solid;
+  border-left-color: #f44336;
+  border-left-width: 15px;
+  font-size: 20px;
+  color: white;
+  padding: 1px;
+  margin-left: 20px;
+}
+
+.resume dt:hover{
+  background-color: #f44336;
+  transition-duration: 0.3s;
+}
+
+.resume dl {
+  width: 75%;
+  text-decoration: none;
+}
+
+.resume dd {
+  background-color: #f54d4185;
+  border-left-style: solid;
+  border-left-color: #f44336;
+  border-left-width: 15px;
+  color: white;
+  font-size: 19;
+  padding: 1px;
+  padding-left: 20px;
+  margin-left: 20px;
+}
+
+.resume a {
+  margin-left: 5px;
+  color: #eeeeee;
+}
+
 /*Surveys recuadro ?)*/
 .surveys ul {
   background-color: #f54d41a6;
@@ -105,7 +144,6 @@ body {
   padding-left: 20px;
   list-style-position: inside;
 }
-
 
 /*Careers recuadro ?)*/
 .careers ul {
@@ -261,7 +299,6 @@ input[type='text']:focus{
   font-size: 20px;
   color:rgb(255, 255, 255)
 }
-
 
 /*Options Style*/
 .container {

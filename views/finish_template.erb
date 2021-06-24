@@ -33,17 +33,22 @@
         <br>
         <p> Vuelva prontos! </p>
       </div>
-      <div class='surveys'>
-        <ul> 
-          <% items = @questions.map { |question| %> 
-            <li> 
-              <a>
-                <%=question.name%> <%=question.description%> <%=question.choiceSelected(@survey.id).text%>
+
+      <div class='resume'>
+        <dl>
+          <% @questions.map { |question| %> 
+            <dt> 
+              <a href='/questions/<%=question.id%>?survey_id=<%=@survey.id%>'> 
+                <%=question.name%>
               </a>
-            </li> <br>
+              <a>- <%=question.description%> </a>
+            </dt>
+            <dd> 
+              <a> <%=question.choiceSelected(@survey.id).text%> </a>
+            </dd>
+            <br>
           <% } %>
-          <% items.join %>
-        </ul>
+        </dl>
       </div>
     </body>
 </html>
