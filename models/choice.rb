@@ -8,3 +8,4 @@ class Choice < Sequel::Model
         errors.add(:text, :text => 'text can not be nil or empty') if text.nil? || text.empty?
     end
 end
+
