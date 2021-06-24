@@ -33,5 +33,17 @@
         <br>
         <p> Vuelva prontos! </p>
       </div>
+      <div class='surveys'>
+        <ul> 
+          <% items = @questions.map { |question| %> 
+            <li> 
+              <a>
+                <%=question.name%> <%=question.description%> <%=question.choiceSelected(@survey.id).text%>
+              </a>
+            </li> <br>
+          <% } %>
+          <% items.join %>
+        </ul>
+      </div>
     </body>
 </html>

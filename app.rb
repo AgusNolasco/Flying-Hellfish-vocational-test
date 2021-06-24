@@ -136,6 +136,7 @@ class App < Sinatra::Base
     @survey = Survey.find(:id => params[:survey_id])
     @survey.compute_result
     @career = Career.find(id: @survey.career_id)
+    @questions = Question.all
     erb :finish_template 
   end
 end
