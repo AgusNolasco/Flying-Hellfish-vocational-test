@@ -19,8 +19,12 @@ class App < Sinatra::Base
 
   #Show all the careers
   get '/careers' do
-    @careers = Career.all
-    erb :careers_index
+    if (Career.empty?)
+      erb :no_careers
+    else
+      @careers = Career.all
+      erb :careers_index
+    end
   end
 
   #Show information about a determined career (by id)
