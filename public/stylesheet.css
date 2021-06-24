@@ -1,7 +1,10 @@
-body {
+/* Every page standard background */
+body { 
   background-color: #333;
 }
 
+
+/* Main logo style */
 #logo{
   position:relative;
   padding: 3px;
@@ -9,9 +12,18 @@ body {
   width: 100px;
 }
 
+
+/* Main title showed in banner */
 #mainTitle{
   position: relative;
   left: 16px;
+}
+
+
+/* Banner */
+.mainNav {
+  background-image: url(/banner.png);
+  border: 3px solid #f44336; 
 }
 
 
@@ -34,223 +46,6 @@ body {
   background-color: rgb(255, 255, 255);
   color: #f44336;
   border: 1px solid white;
-}
-
-
-/*Big banner*/
-.mainNav {
-  background-image: url(/banner.png);
-  border: 3px solid #f44336; 
-}
-
-
-/*Button style*/
-.button {
-  background-color: #f44336;
-  border: none;
-  border-radius: 8px;
-  color: white;
-  padding: 10px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  transition-duration: 0.3s;
-}
-
-.button:hover{
-  background-color: white;
-  color: #f44336;
-  cursor: pointer;
-}
-
-
-/*Nothing page style*/
-.nothing h1 {
-  color: white;
-}
-
-.nothing img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border: 3px solid #f44336;
-  padding: 10px;
-  background-color: #f7736a93;
-  border-radius: 10px;
-  width: 50%;
-}
-
-/*Resume style*/
-.resume dt {
-  background-color: #f54d41a6;
-  border-left-style: solid;
-  border-left-color: #f44336;
-  border-left-width: 15px;
-  font-size: 20px;
-  color: white;
-  padding: 1px;
-  margin-left: 20px;
-}
-
-.resume dt:hover{
-  background-color: #f44336;
-  transition-duration: 0.3s;
-}
-
-.resume dl {
-  width: 75%;
-  text-decoration: none;
-}
-
-.resume dd {
-  background-color: #f54d4185;
-  border-left-style: solid;
-  border-left-color: #f44336;
-  border-left-width: 15px;
-  color: white;
-  font-size: 19;
-  padding: 1px;
-  padding-left: 20px;
-  margin-left: 20px;
-}
-
-.resume a {
-  margin-left: 5px;
-  color: #eeeeee;
-}
-
-/*Surveys recuadro ?)*/
-.surveys ul {
-  background-color: #f54d41a6;
-  width: 250px;
-  border-left-style: solid;
-  border-left-color: #f44336;
-  border-left-width: 15px;
-  color: white;
-  padding: 0px;
-  margin-left: 20px;
-}
-
-/*Survey list style*/
-.surveys a {
-  font-size: 20px;
-  color: white;
-}
-
-.surveys li {
-  transition-duration: 0.3s;
-  overflow-wrap: break-word;
-  padding-left: 20px;
-  list-style-position: inside;
-}
-
-/*Careers recuadro ?)*/
-.careers ul {
-background-color: #f54d41a6;
-width: 230px;
-border-left-style: solid;
-border-left-color: #f44336;
-border-left-width: 15px;
-color: white;
-padding: 0px;
-margin-left: 20px;
-}
-
-
-/*Career list style*/
-.careers a {
-  font-size: 17px;
-  color: white;
-}
-
-.careers li {
-  transition-duration: 0.3s;
-  overflow-wrap: break-word;
-  padding-left: 20px;
-  list-style-position: inside;
-}
-
-.careers li:hover {
-  background-color: #f44336;
-  overflow: hidden;
-  text-decoration: none;
-  padding-left: 40px;
-  padding-right: 20px;
-}
-
-
-/*Careers Template Style*/
-.careerPage {
-  padding: auto;
-  margin: auto;
-  text-align: centre;
-}
-
-.careerPage img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border: 3px solid #f44336;
-  padding: 10px;
-  background-color: #f7736a93;
-  border-radius: 10px;
-  width: 50%;
-}
-
-.careerPage h2 {
-  color: white;
-  text-align: center;
-}
-
-
-/*Finish Page Style*/
-.finishText {
-  background-color: #f54d41a6;
-  border: 3px solid #f44336;
-  border-radius: 5px;
-  text-align: center;
-  color: white;
-  padding: auto;
-  margin: auto;
-  width: 25%;
-}
-
-.finishText a {
-  color: white;
-  transition-duration: 0.3s;
-}
-
-.finishText a:hover {
-  background-color: #f44336;
-}
-
-.finishText p {
-  color: white;
-}
-
-
-/*No Question Style*/
-.nq {
-  background-color: #f54d41a6;
-  border: 3px solid #f44336;
-  border-radius: 5px;
-  text-align: center;
-  color: white;
-  padding: auto;
-  margin: auto;
-}
-
-.nq p{
-  color: white;
-  text-align: center;
-}
-
-.nq img{
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 15%;
 }
 
 
@@ -277,10 +72,30 @@ input[type='text']:focus{
   outline: none;
 }
 
-
 ::placeholder{
   color: white;
   opacity: 0.5;
+}
+
+
+/*Button style*/
+.button {
+  background-color: #f44336;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 10px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.3s;
+}
+
+.button:hover{
+  background-color: white;
+  color: #f44336;
+  cursor: pointer;
 }
 
 
@@ -300,6 +115,7 @@ input[type='text']:focus{
   color:rgb(255, 255, 255)
 }
 
+
 /*Options Style*/
 .container {
   display: block;
@@ -314,7 +130,6 @@ input[type='text']:focus{
   user-select: none;
   color: white;
 }
-
 /* Hide the browser's default radio button */
 .container input {
   position: absolute;
@@ -323,7 +138,6 @@ input[type='text']:focus{
   height: 0;
   width: 0;
 }
-
 /* Create a custom radio button */
 .checkmark {
   position: absolute;
@@ -334,34 +148,24 @@ input[type='text']:focus{
   background-color: #eee;
   border-radius: 50%;
 }
-
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
   background-color: #ccc;
 }
-
 /* When the radio button is checked, add a blue background */
 .container input:checked ~ .checkmark {
   background-color: #f44336;
 }
-
 /* Create the indicator (the dot/circle - hidden when not checked) */
 .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
-
 /* Show the indicator (dot/circle) when checked */
 .container input:checked ~ .checkmark:after {
   display: block;
 }
-
-.container input:noselect ~ .button {
-  background-color: grey;
-  color: black;
-}
-
 /* Style the indicator (dot/circle) */
 .container .checkmark:after {
   top: 3px;
@@ -370,4 +174,194 @@ input[type='text']:focus{
   height: 7px;
   border-radius: 50%;
   background: white;
+}
+
+
+/* Resume style */
+.resume dt {
+  background-color: #f54d41a6;
+  border-left-style: solid;
+  border-left-color: #f44336;
+  border-left-width: 15px;
+  font-size: 20px;
+  color: white;
+  padding: 1px;
+  margin-left: 20px;
+}
+
+.resume dt:hover{
+  background-color: #f44336;
+  transition-duration: 0.3s;
+}
+
+.resume dl {
+  width: 75%;
+  text-decoration: none;
+  margin-left: 170px;
+}
+
+.resume dd {
+  background-color: #f54d4185;
+  border-left-style: solid;
+  border-left-color: #f44336;
+  border-left-width: 15px;
+  color: white;
+  font-size: 19;
+  padding: 1px;
+  padding-left: 20px;
+  margin-left: 20px;
+}
+
+.resume a {
+  margin-left: 5px;
+  color: #eeeeee;
+}
+
+
+/* Survey list style */
+.surveys ul {
+  background-color: #f54d41a6;
+  width: 250px;
+  border-left-style: solid;
+  border-left-color: #f44336;
+  border-left-width: 15px;
+  color: white;
+  padding: 0px;
+  margin-left: 20px;
+}
+
+.surveys a {
+  font-size: 20px;
+  color: white;
+}
+
+.surveys li {
+  transition-duration: 0.3s;
+  overflow-wrap: break-word;
+  padding-left: 20px;
+  list-style-position: inside;
+}
+
+
+/* Careers list style */
+.careers ul {
+  background-color: #f54d41a6;
+  width: 230px;
+  border-left-style: solid;
+  border-left-color: #f44336;
+  border-left-width: 15px;
+  color: white;
+  padding: 0px;
+  margin-left: 20px;
+}
+
+.careers a {
+  font-size: 17px;
+  color: white;
+}
+
+.careers li {
+  transition-duration: 0.3s;
+  overflow-wrap: break-word;
+  padding-left: 20px;
+  list-style-position: inside;
+}
+
+.careers li:hover {
+  background-color: #f44336;
+  overflow: hidden;
+  text-decoration: none;
+  padding-left: 40px;
+  padding-right: 20px;
+}
+
+
+/* Careers page style */
+.careerPage {
+  padding: auto;
+  margin: auto;
+  text-align: centre;
+}
+
+.careerPage img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 3px solid #f44336;
+  padding: 10px;
+  background-color: #f7736a93;
+  border-radius: 10px;
+  width: 50%;
+}
+
+.careerPage h2 {
+  color: white;
+  text-align: center;
+}
+
+
+/* Finish Page Style */
+.finishText {
+  background-color: #f54d41a6;
+  border: 3px solid #f44336;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  padding: auto;
+  margin: auto;
+  width: 25%;
+}
+
+.finishText a {
+  color: white;
+  transition-duration: 0.3s;
+}
+
+.finishText a:hover {
+  background-color: #f44336;
+}
+
+.finishText p {
+  color: white;
+}
+
+
+/* No Question page style */
+.nq {
+  background-color: #f54d41a6;
+  border: 3px solid #f44336;
+  border-radius: 5px;
+  text-align: center;
+  color: white;
+  padding: auto;
+  margin: auto;
+}
+
+.nq p {
+  color: white;
+  text-align: center;
+}
+
+.nq img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 15%;
+}
+
+
+/*Nothing page style*/
+.nothing h1 {
+  color: white;
+}
+
+.nothing img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 3px solid #f44336;
+  padding: 10px;
+  background-color: #f7736a93;
+  border-radius: 10px;
+  width: 50%;
 }
