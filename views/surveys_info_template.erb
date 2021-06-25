@@ -37,7 +37,7 @@
         <% sorted_careers = @careers.sort_by { |career| -career.surveys.count } %>
         <% sorted_careers.map { |career| %> 
           <li class='careers'> 
-            <a> <%=career.name %>: <%=career.surveys.count %> - <%=((career.surveys.count * 100) / @survey_count) %> % </a>
+            <a> <%=career.name %>: <%=career.surveys.count %> - <%='%.2f' % ((career.surveys.count.to_f * 100) / @survey_count) %> % </a>
           </li> <br>
           <% } %>
       </ul>
