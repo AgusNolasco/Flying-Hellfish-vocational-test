@@ -66,7 +66,11 @@ class App < Sinatra::Base
       if (params[:next_question] == 'true')
         question = response.question.next
       else
-        question = response.question.prev
+      	if (params[:next_question] == 'end')
+      		redirect "/finish/#{params[:survey_id]}"
+      	else
+        	question = response.question.prev
+        end
       end
       if question.nil?
         redirect "/finish/#{params[:survey_id]}"

@@ -51,6 +51,9 @@
           <button class='button' type='submit' name='next_question' value='true' > Finalizar </button>
         <% else %>
           <button class='button' type='submit' name='next_question' value='true'> Siguiente </button>
+          <% if Survey.find(id: @survey_id).completed? %>
+          	<button class='button' type='submit' name='next_question' value='end' > Finalizar </button>
+          <% end %>
         <% end %>
       </form>
     </div>
