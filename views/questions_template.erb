@@ -22,40 +22,40 @@
       </div>  
     </nav>
     <br>
-    <div class='quesTitle'>
+    <div class='quesTitle centered'>
       <a class='qTitle'> <%= @question.name %> </a> 
       <hr>
       <a class='qDesc'> <%= @question.description %> </a> <br>
-    </div>
     <br>
-    <div>
-      <form action='/responses/<%= @survey_id.to_s %>' method='POST'>
-        <input type='hidden' name='question_id' value='<%= @question.id %>' >
-        <% @question.choices.each do |choice| %>
-          <label class='container'><%= choice.text %>
-          <% if choice == @question.choiceSelected(@survey_id.to_i) %>
-            <input type='radio' name='choice_id' value=<%= choice.id %> checked>
+      <div>
+        <form action='/responses/<%= @survey_id.to_s %>' method='POST'>
+          <input type='hidden' name='question_id' value='<%= @question.id %>' >
+          <% @question.choices.each do |choice| %>
+            <label class='container'><%= choice.text %>
+            <% if choice == @question.choiceSelected(@survey_id.to_i) %>
+              <input type='radio' name='choice_id' value=<%= choice.id %> checked>
+            <% else %>
+              <input type='radio' name='choice_id' value=<%= choice.id %>>
+            <% end %>
+            <span class='checkmark'></span>
+            </label>
+          <% end %>
+          <% if @question.answered?(@survey_id.to_i) %>
+            <input type='hidden' name='_method' value='PATCH'>
+          <% end %>
+          <% if !@question.first? %>
+            <button class='button' type='submit' name='next_question' value='false'> Atras </button>
+          <% end %>
+          <% if @question.last? %>
+            <button class='button' type='submit' name='next_question' value='true' > Finalizar </button>
           <% else %>
-            <input type='radio' name='choice_id' value=<%= choice.id %>>
+            <button class='button' type='submit' name='next_question' value='true'> Siguiente </button>
+            <% if Survey.find(id: @survey_id).completed? %>
+              <button class='button' type='submit' name='next_question' value='end' > Finalizar </button>
+            <% end %>
           <% end %>
-          <span class='checkmark'></span>
-          </label>
-        <% end %>
-        <% if @question.answered?(@survey_id.to_i) %>
-          <input type='hidden' name='_method' value='PATCH'>
-        <% end %>
-        <% if !@question.first? %>
-          <button class='button' type='submit' name='next_question' value='false'> Atras </button>
-        <% end %>
-        <% if @question.last? %>
-          <button class='button' type='submit' name='next_question' value='true' > Finalizar </button>
-        <% else %>
-          <button class='button' type='submit' name='next_question' value='true'> Siguiente </button>
-          <% if Survey.find(id: @survey_id).completed? %>
-          	<button class='button' type='submit' name='next_question' value='end' > Finalizar </button>
-          <% end %>
-        <% end %>
-      </form>
+        </form>
+      </div>
     </div>
   </body>
 </html>
