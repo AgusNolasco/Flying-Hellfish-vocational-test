@@ -6,7 +6,7 @@ body {
 
 /* Main logo style */
 #logo{
-  position:relative;
+  position: relative;
   padding: 3px;
   height: 172px;
   width: 130px;
@@ -15,8 +15,24 @@ body {
 
 /* Main title showed in banner */
 #mainTitle{
+  display: inline-block;
   position: relative;
-  left: 16px;
+  font-family: Quicksand;
+  color: white;
+  top: -50px;
+  left: 10px;
+  border-bottom: 2px solid #1f1f1f;
+  border-right: 2px solid #1f1f1f;
+  padding-right: 8px;
+}
+
+.boxShadow {
+  box-shadow: 5px 5px #1f1f1f;
+}
+
+.inColumns {
+  column-count: 3;
+  column-gap: 5px;
 }
 
 .centered {
@@ -113,7 +129,6 @@ input[type='text']:focus{
   color:rgb(255, 255, 255);
   border-radius: 15px;
   overflow-wrap: break-word;
-  box-shadow: 5px 5px #1f1f1f;
 }
 
 .qDesc{
@@ -227,17 +242,16 @@ input[type='text']:focus{
 /* Survey list style */
 .surveys ul {
   background-color: #f54d41a6;
-  width: 250px;
+  width: 800px;
   border-left-style: solid;
   border-left-color: #f44336;
   border-left-width: 15px;
   color: white;
   padding: 0px;
-  margin-left: 20px;
 }
 
 .surveys a {
-  font-size: 20px;
+  font-size: 26px;
   color: white;
 }
 
@@ -252,13 +266,12 @@ input[type='text']:focus{
 /* Careers list style */
 .careers ul {
   background-color: #f54d41a6;
-  width: 230px;
+  width: 600px;
   border-left-style: solid;
   border-left-color: #f44336;
   border-left-width: 15px;
   color: white;
   padding: 0px;
-  margin-left: 20px;
 }
 
 .careers a {
