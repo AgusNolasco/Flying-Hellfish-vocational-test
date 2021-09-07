@@ -9,20 +9,20 @@
     <link rel='icon' type='image/png' sizes='16x16' href='/favicon-16x16.png'>
     <link rel='manifest' href='/site.webmanifest'>
   </head>
+  <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'>
 
   <body>
     <nav class='mainNav'>
-      <div height='100px'>
-        <a href='/'>
-          <img id='logo' src='/Flying_Hellfish_Logo.png'/>
-        </a>
-        <h1 id='mainTitle'>
-          Tomando el Test
-        </h1>
-      </div>  
+      <a href='/'>
+        <img id='logo' src='/Flying_Hellfish_Logo.png'/>
+      </a>
+      <h1 id='mainTitle'>
+        Tomando el Test
+      </h1>
     </nav>
     <br>
-    <div class='quesTitle centered'>
+
+    <div class='quesTitle centered boxShadow'>
       <a class='qTitle'> <%= @question.name %> </a> 
       <hr>
       <a class='qDesc'> <%= @question.description %> </a> <br>
