@@ -35,7 +35,11 @@ class App < Sinatra::Base
 
   post '/surveys' do
     data = request.body.read
-    survey = Survey.new(username: params[:username])
+    if Survey.find(username: params[:username]).nil?
+    	survey = Survey.new(username: params[:username])
+    else
+    	redirect '/'
+    end
     if Question.first #if we have at least one question
       if survey.save
         [201, { 'Location' => "surveys/#{survey.id}" }, 'CREATED']
