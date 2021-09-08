@@ -384,3 +384,49 @@ input[type='text']:focus{
   border-radius: 10px;
   width: 50%;
 }
+
+
+
+/* Popup container */
+/* .popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+} */
+
+.popup {
+  background-color: #f1574ca6;
+  width: 180px;
+  text-align: center;
+  color: white;
+  border-radius: 10px;
+  font-size: 14px;
+  padding: 8px;
+  transition-duration: 1s;
+  box-shadow: 3px 3px #1f1f1f;
+}
+
+.arrow {
+  display: block;
+  width: 0; 
+  height: 0; 
+  transition-duration: 1s;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  
+  border-bottom: 15px solid #f1574ca6;
+  margin-left: 75px;
+}
+
+
+/* Popup arrow */
+/* .popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+} */
