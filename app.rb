@@ -4,6 +4,9 @@ class App < Sinatra::Base
   set :method_override, true
 
   get '/' do
+    if !params[:rejected].nil?
+      @rejected = true
+    end
     erb :landing_page
   end
 
@@ -38,7 +41,7 @@ class App < Sinatra::Base
     if Survey.find(username: params[:username]).nil?
     	survey = Survey.new(username: params[:username])
     else
-    	redirect '/'
+    	redirect '/?rejected=true'
     end
     if Question.first #if we have at least one question
       if survey.save
