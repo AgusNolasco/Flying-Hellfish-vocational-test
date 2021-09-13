@@ -1,6 +1,8 @@
 /* Every page standard background */
 body { 
-  background-color: #333;
+  background-image: url("/background-3.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 
@@ -18,12 +20,14 @@ body {
   display: inline-block;
   position: relative;
   font-family: Quicksand;
-  color: white;
+  color: #DFF2EF;
   top: -50px;
   left: 10px;
-  border-bottom: 2px solid #1f1f1f;
-  border-right: 2px solid #1f1f1f;
+  border-bottom: 2px solid #333;
+  border-right: 2px solid #333;
   padding-right: 8px;
+  margin: 0px;
+  font-size: 30px;
 }
 
 .boxShadow {
@@ -43,39 +47,53 @@ body {
 
 /* Banner */
 .mainNav {
-  background-image: url(/banner.png);
-  border: 3px solid #f44336; 
+  background-color: #FF7759;
+  border: 2px solid #DFF2EF; 
 }
 
 
 /*Small navigation bar*/
 .topNav {
   overflow: hidden;
-  background-color: #f44336;    
+  background-color: #F2636F;   
+  border-top: 2px solid #DFF2EF; 
 }
 
 .topNav a {
-  color: #ffffff;
+  color: #DFF2EF;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
   transition-duration: 0.3s;
+  border-right: 3px solid #DFF2EF;
 }
 
 .topNav a:hover {
-  background-color: rgb(255, 255, 255);
-  color: #f44336;
-  border: 1px solid white;
+  background-color: #DFF2EF;
+  color: #F2363F;
+  border: 1px solid #DFF2EF;
 }
 
 
 /*Label Style*/
 .label {
   font-size: 25px;
-  color: white;
+  color: #DFF2EF;
 }
 
+/*Center Form*/
+div.form {
+  display: block;
+  text-align: center;
+}
+
+.form {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;
+}
 
 /*Input Styles*/
 input[type='text']{
@@ -83,28 +101,28 @@ input[type='text']{
   margin: 5px 0 22px 0;
   display: inline-block;
   border-radius: 2px;
-  border: none;
-  background: #f7736a93;
-  color: white;
+  border: 1px solid #DFF2EF;
+  background: #03A69693;
+  color: #DFF2EF;
 }
 
 input[type='text']:focus{
-  background: #f7736a56;
+  background: #03A69656;
   outline: none;
 }
 
 ::placeholder{
-  color: white;
+  color: #DFF2EF;
   opacity: 0.5;
 }
 
 
 /*Button style*/
 .button {
-  background-color: #f44336;
+  background-color: #03A696;
   border: none;
   border-radius: 8px;
-  color: white;
+  color: #DFF2EF;
   padding: 10px 25px;
   text-align: center;
   text-decoration: none;
@@ -114,8 +132,8 @@ input[type='text']:focus{
 }
 
 .button:hover{
-  background-color: white;
-  color: #f44336;
+  background-color: #DFF2EF;
+  color: #03A696;
   cursor: pointer;
 }
 
@@ -124,7 +142,7 @@ input[type='text']:focus{
 .quesTitle{
   padding: 10px;
   width: 35%;
-  background-color: #f1574ca6;
+  background-color: #FF7759a6;
   font-size: 25px;
   color:rgb(255, 255, 255);
   border-radius: 15px;
@@ -133,7 +151,7 @@ input[type='text']:focus{
 
 .qDesc{
   font-size: 20px;
-  color:rgb(255, 255, 255)
+  color:rgb(255, 255, 255);
 }
 
 
@@ -149,7 +167,7 @@ input[type='text']:focus{
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  color: white;
+  color: #DFF2EF;
 }
 /* Hide the browser's default radio button */
 .container input {
@@ -175,7 +193,7 @@ input[type='text']:focus{
 }
 /* When the radio button is checked, add a blue background */
 .container input:checked ~ .checkmark {
-  background-color: #f44336;
+  background-color: #03A696;
 }
 /* Create the indicator (the dot/circle - hidden when not checked) */
 .checkmark:after {
@@ -194,24 +212,24 @@ input[type='text']:focus{
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: white;
+  background: #DFF2EF;
 }
 
 
 /* Resume style */
 .resume dt {
-  background-color: #f54d41a6;
+  background-color: #FF7759a6;
   border-left-style: solid;
-  border-left-color: #f44336;
+  border-left-color: #F2636F;
   border-left-width: 15px;
   font-size: 20px;
-  color: white;
+  color: #DFF2EF;
   padding: 1px;
   margin-left: 20px;
 }
 
 .resume dt:hover{
-  background-color: #f44336;
+  background-color: #F2636F;
   transition-duration: 0.3s;
 }
 
@@ -222,11 +240,11 @@ input[type='text']:focus{
 }
 
 .resume dd {
-  background-color: #f54d4185;
+  background-color: #FF775985;
   border-left-style: solid;
-  border-left-color: #f44336;
+  border-left-color: #F2636F;
   border-left-width: 15px;
-  color: white;
+  color: #DFF2EF;
   font-size: 19;
   padding: 1px;
   padding-left: 20px;
@@ -241,18 +259,18 @@ input[type='text']:focus{
 
 /* Survey list style */
 .surveys ul {
-  background-color: #f54d41a6;
+  background-color: #FF7759a6;
   width: 800px;
   border-left-style: solid;
-  border-left-color: #f44336;
+  border-left-color: #F2636F;
   border-left-width: 15px;
-  color: white;
+  color: #DFF2EF;
   padding: 0px;
 }
 
 .surveys a {
   font-size: 26px;
-  color: white;
+  color: #DFF2EF;
 }
 
 .surveys li {
@@ -265,18 +283,18 @@ input[type='text']:focus{
 
 /* Careers list style */
 .careers ul {
-  background-color: #f54d41a6;
+  background-color: #FF7759a6;
   width: 600px;
   border-left-style: solid;
-  border-left-color: #f44336;
+  border-left-color: #F2636F;
   border-left-width: 15px;
-  color: white;
+  color: #DFF2EF;
   padding: 0px;
 }
 
 .careers a {
   font-size: 17px;
-  color: white;
+  color: #DFF2EF;
 }
 
 .careers li {
@@ -287,7 +305,7 @@ input[type='text']:focus{
 }
 
 .careers li:hover {
-  background-color: #f44336;
+  background-color: #F2636F;
   overflow: hidden;
   text-decoration: none;
   padding-left: 40px;
@@ -306,58 +324,58 @@ input[type='text']:focus{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  border: 3px solid #f44336;
+  border: 3px solid #F2636F;
   padding: 10px;
-  background-color: #f7736a93;
+  background-color: #FF7759;
   border-radius: 10px;
   width: 50%;
 }
 
 .careerPage h2 {
-  color: white;
+  color: #DFF2EF;
   text-align: center;
 }
 
 
 /* Finish Page Style */
 .finishText {
-  background-color: #f54d41a6;
-  border: 3px solid #f44336;
+  background-color: #FF7759a6;
+  border: 3px solid #F2636F;
   border-radius: 5px;
   text-align: center;
-  color: white;
+  color: #DFF2EF;
   padding: auto;
   margin: auto;
   width: 25%;
 }
 
 .finishText a {
-  color: white;
+  color: #DFF2EF;
   transition-duration: 0.3s;
 }
 
 .finishText a:hover {
-  background-color: #f44336;
+  background-color: #F2636F;
 }
 
 .finishText p {
-  color: white;
+  color: #DFF2EF;
 }
 
 
 /* No Question page style */
 .nq {
-  background-color: #f54d41a6;
-  border: 3px solid #f44336;
+  background-color: #FF7759a6;
+  border: 3px solid #F2636F;
   border-radius: 5px;
   text-align: center;
-  color: white;
+  color: #DFF2EF;
   padding: auto;
   margin: auto;
 }
 
 .nq p {
-  color: white;
+  color: #DFF2EF;
   text-align: center;
 }
 
@@ -371,34 +389,28 @@ input[type='text']:focus{
 
 /*Nothing page style*/
 .nothing h1 {
-  color: white;
+  color: #DFF2EF;
 }
 
 .nothing img {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  border: 3px solid #f44336;
+  border: 3px solid #F2636F;
   padding: 10px;
-  background-color: #f7736a93;
+  background-color: #FF775993;
   border-radius: 10px;
   width: 50%;
 }
 
 
 
-/* Popup container */
-/* .popup {
-  position: relative;
-  display: inline-block;
-  cursor: pointer;
-} */
-
+/* Popup message */
 .popup {
-  background-color: #f1574ca6;
+  background-color: #FF7759a6;
   width: 180px;
   text-align: center;
-  color: white;
+  color: #DFF2EF;
   border-radius: 10px;
   font-size: 14px;
   padding: 8px;
@@ -406,6 +418,7 @@ input[type='text']:focus{
   box-shadow: 3px 3px #1f1f1f;
 }
 
+/* Popup arrow */
 .arrow {
   display: block;
   width: 0; 
@@ -414,19 +427,6 @@ input[type='text']:focus{
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
   
-  border-bottom: 15px solid #f1574ca6;
+  border-bottom: 15px solid #FF7759a6;
   margin-left: 75px;
 }
-
-
-/* Popup arrow */
-/* .popup .popuptext::after {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: #555 transparent transparent transparent;
-} */
