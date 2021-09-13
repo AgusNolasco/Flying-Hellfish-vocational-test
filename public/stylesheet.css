@@ -23,8 +23,7 @@ body {
   color: #DFF2EF;
   top: -50px;
   left: 10px;
-  border-bottom: 2px solid #333;
-  border-right: 2px solid #333;
+  border: none;
   padding-right: 8px;
   margin: 0px;
   font-size: 30px;
@@ -407,7 +406,7 @@ input[type='text']:focus{
 
 /* Popup message */
 .popup {
-  background-color: #FF7759a6;
+  background-color: #03A696a6;
   width: 180px;
   text-align: center;
   color: #DFF2EF;
@@ -427,6 +426,5 @@ input[type='text']:focus{
   border-left: 20px solid transparent;
   border-right: 20px solid transparent;
   
-  border-bottom: 15px solid #FF7759a6;
-  margin-left: 75px;
+  border-bottom: 15px solid #03A696a6;
 }

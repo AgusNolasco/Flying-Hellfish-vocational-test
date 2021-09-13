@@ -13,9 +13,7 @@
 
   <body>
     <nav class='mainNav'>
-      <a href='/'>
-        <img id='logo' src='/Flying_Hellfish_Logo.png'/>
-      </a>
+      <a href='/'><img id='logo' src='/Flying_Hellfish_Logo.png'/></a>
       <h1 id='mainTitle'>
         Bienvenido al Test Vocacional de FlyingHellfish!
       </h1>
@@ -33,9 +31,9 @@
               <input type='text' name='username' placeholder='Nombre de Usuario' required autocomplete='off' class='inputText'>
               <input class='button' type='submit' value='Guardar'>
               <% if @rejected %>
-                <div class='arrow'>
+                <div class='arrow centered'>
                 </div>
-                <div class='popup'>
+                <div class='popup centered'>
                   Ingrese un nombre que no haya sido utilizado
                 </div>
               <% end %>
