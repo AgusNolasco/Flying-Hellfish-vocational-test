@@ -27,17 +27,19 @@
     </nav>
     <br>
        <br>
-        <form action='/surveys' method='POST'>
-            <label class='label' for='username'><b>Ingrese nombre de Usuario</b></label> <br>
-            <input type='text' name='username' placeholder='Nombre de Usuario' required autocomplete='off' class='inputText'>
-            <input class='button' type='submit' value='Guardar'>
-            <% if @rejected %>
-              <div class='arrow'>
-              </div>
-              <div class='popup'>
-                Ingrese un nombre que no haya sido utilizado
-              </div>
-            <% end %>
-        </form>
+        <div class='form'>
+          <form action='/surveys' method='POST'>
+              <label class='label' for='username'><b>Ingrese nombre de Usuario</b></label> <br>
+              <input type='text' name='username' placeholder='Nombre de Usuario' required autocomplete='off' class='inputText'>
+              <input class='button' type='submit' value='Guardar'>
+              <% if @rejected %>
+                <div class='arrow'>
+                </div>
+                <div class='popup'>
+                  Ingrese un nombre que no haya sido utilizado
+                </div>
+              <% end %>
+          </form>
+        </div>
     </body>
 </html>
