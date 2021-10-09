@@ -141,6 +141,11 @@ class App < Sinatra::Base
   	@careers = Career.all
   	@survey_count = Survey.count_completed
     if (@survey_count > 0)
+      bottom_date = params[:bottom_date]
+      top_date = params[:top_date]
+      if (!bottom_date.nil? && !top_date.nil?)
+        @surveys_between_dates = Survey.where(:completed_at => bottom_date .. top_date).all()
+      end
   	  erb :surveys_info_template
     else
       erb :no_surveys
