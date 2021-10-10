@@ -24,6 +24,69 @@
 
     <br>
     
+    <div class="surveys centered">
+      <a style="
+          float: left;
+          padding-top: 10px;
+          padding-left: 10px;" > 
+        Filtrar por fecha - </a>
+
+      <form action="/surveys_info" method="GET" style="
+          background-color: #FF7759a6;
+          color: #DFF2EF;
+          padding-left: 200px;
+          padding-top: 8px;
+          padding-bottom: 8px;" >
+
+        <label for="bottom_date">Fecha inicial:</label>
+        <input type="date" id="bottom_date"  required name="bottom_date" min="2021-01-01" max="2050-12-31">
+    
+    
+        <label for="top_date">Fecha final:</label>
+        <input type="date" id="top_date" required name="top_date" min="2021-01-01" max="2050-12-31">
+
+        <label for="selected_career">Carrera:</label>
+        <select name="selected_career" id="selected_career">
+          <% @careers.each do |car| %>
+            <option value=<%=car.name %>> <%= car.name %> </option>
+          <% end %>
+        </select>
+
+        <input style="margin-left: 10px" class='button' type='submit' value='Aceptar'>
+      </form>
+    </div>
+
+    <% if !@surveys_between_dates.nil? %>    
+      <div class="surveys" style="
+            background-color: #FF7759a6;
+            color: #DFF2EF;
+        ">
+        <% if @bottom_date > @top_date %>
+          <a> La fecha de inicio es menor a la fecha de fin. Por favor no sea tan trol. </a>
+        <% else %>
+          <a style="
+            padding-left: 10px;  
+          "> Encuestas completadas entre <%= @bottom_date %> y <%= @top_date %> </a>
+          <% if @surveys_between_dates == 1 %>
+            <p style="
+              padding-left: 10px;  
+              padding-bottom: 10px;
+              font-size: 18px;
+            "> 
+            <%= @selected_career %>: <%= @surveys_between_dates %> encuesta completada </p>
+          <% else %>
+            <p style="
+              padding-left: 10px; 
+              padding-bottom: 10px; 
+              font-size: 18px;
+            "> 
+            <%= @selected_career %>: <%= @surveys_between_dates %> encuestas completadas </p>
+          <% end %>
+        <% end %>
+      </div>
+    <% end %>
+
+
     <div class='surveys'>
         <a> Total de encuestas terminadas: <%=@survey_count%> </a>
         <br>
