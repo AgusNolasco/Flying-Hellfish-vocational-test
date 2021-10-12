@@ -24,6 +24,7 @@ class Survey < Sequel::Model
       
       max_ocurrences_career_id = careers_count.key(careers_count.values.max)
       self.update(career_id: max_ocurrences_career_id) 
+      self.update(completed_at: Sequel.lit('NOW()'))
     end
 
     def completed?
