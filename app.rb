@@ -10,16 +10,6 @@ class App < Sinatra::Base
     erb :landing_page
   end
 
-  post '/careers' do
-    data = request.body.read
-    career = Career.new(name: params[:name])
-    if career.save
-      [201, { 'Location' => "careers/#{career.id}" }, 'CREATED']
-    else
-      [500, {}, 'Internal Server Error']
-    end
-  end
-
   #Show all the careers
   get '/careers' do
     if (Career.empty?)
@@ -114,22 +104,6 @@ class App < Sinatra::Base
     else
       [500, {}, 'Internal Server Error']
     end
-  end
-
-  post '/posts' do
-    request.body.rewind  # in case someone already read it
-    data = JSON.parse request.body.read
-    post = Post.new(description: data['desc'])
-    if post.save
-      [201, { 'Location' => "posts/#{post.id}" }, 'CREATED']
-    else
-      [500, {}, 'Internal Server Error']
-    end
-  end
-
-  get '/posts' do
-    p = Post.where(id: 1).last
-    p.description
   end
 
   #This is executed when there are no questions
