@@ -10,7 +10,6 @@ class App < Sinatra::Base
     erb :landing_page
   end
 
-  #Show all the careers
   get '/careers' do
     if (Career.empty?)
       erb :no_careers
@@ -20,10 +19,9 @@ class App < Sinatra::Base
     end
   end
 
-  #Show information about a determined career (by id)
   get '/careers/:id' do
     @career = Career.find(id: params[:id])
-    erb :careers_template
+    erb :career_info
   end
 
   post '/surveys' do
