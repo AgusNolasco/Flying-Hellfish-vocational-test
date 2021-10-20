@@ -41,4 +41,7 @@ class Survey < Sequel::Model
       return sum
     end
 
+    def exist?
+      return !self.nil?
+    end
 end
