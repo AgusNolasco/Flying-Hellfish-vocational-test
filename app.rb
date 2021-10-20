@@ -25,24 +25,20 @@ class App < Sinatra::Base
   end
 
   post '/surveys' do
-    data = request.body.read
-    if Survey.find(username: params[:username]).nil?
-    	survey = Survey.new(username: params[:username])
-    else
+    if Survey.find(username: params[:username]).exist?
     	redirect '/?rejected=true'
+    else
+    	survey = Survey.new(username: params[:username])
     end
-    if Question.first #if we have at least one question
+    if Question.empty?
+      redirect '/finish'
+    else
       if survey.save
         [201, { 'Location' => "surveys/#{survey.id}" }, 'CREATED']
       else
         [500, {}, 'Internal Server Error']
       end
-      first_question_id = Question.first.id 
-      #Redirect us to the first question
-      redirect to("/questions/#{first_question_id}?survey_id=#{survey.id}")
-    else
-      #if we have no questions then finish
-      redirect '/finish'
+      redirect to("/questions/#{Question.first.id}?survey_id=#{survey.id}")
     end
   end
 
