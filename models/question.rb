@@ -29,7 +29,7 @@ class Question < Sequel::Model
     return (not response.nil?)
   end
 
-  def choiceSelected(survey_id)
+  def choice_selected(survey_id)
     response = Response.find(survey_id: survey_id, question_id: self.id)
     if response.nil?
       return nil

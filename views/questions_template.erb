@@ -30,7 +30,7 @@
           <input type='hidden' name='question_id' value='<%= @question.id %>' >
           <% @question.choices.each do |choice| %>
             <label class='container'><%= choice.text %>
-            <% if choice == @question.choiceSelected(@survey_id.to_i) %>
+            <% if choice == @question.choice_selected(@survey_id.to_i) %>
               <input type='radio' name='choice_id' value=<%= choice.id %> checked>
             <% else %>
               <input type='radio' name='choice_id' value=<%= choice.id %>>
