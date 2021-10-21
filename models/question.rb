@@ -1,3 +1,5 @@
+require_relative 'util'
+
 class Question < Sequel::Model
   one_to_many :choices
   one_to_many :responses
@@ -24,18 +26,16 @@ class Question < Sequel::Model
     return prev_question
   end
 
-  def answered?(survey_id)
-    response = Response.find(survey_id: survey_id, question_id: self.id)
-    return (not response.nil?)
+  def get_response(survey_id)
+    return Response.find(survey_id: survey_id, question_id: self.id)
   end
 
-  def choice_selected(survey_id)
-    response = Response.find(survey_id: survey_id, question_id: self.id)
-    if response.nil?
-      return nil
-    else
-      return Choice.find(id: response.choice_id)
-    end 
+  def answered?(survey_id)
+    return self.get_response(survey_id).exist?
+  end
+
+  def choice_selected(survey_id) 
+    return Choice.find(id: self.get_response(survey_id).choice_id)
   end
 
   def first?
