@@ -34,8 +34,10 @@ class Question < Sequel::Model
     return self.get_response(survey_id).exist?
   end
 
-  def choice_selected(survey_id) 
-    return Choice.find(id: self.get_response(survey_id).choice_id)
+  def choice_selected(survey_id)
+  	if self.answered?(survey_id)
+    	return Choice.find(id: self.get_response(survey_id).choice_id)
+    end
   end
 
   def first?
