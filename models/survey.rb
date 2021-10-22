@@ -8,22 +8,21 @@ class Survey < Sequel::Model
 	end
 
   def compute_result
-    #Use a HashMap to index the careers
     careers_count = Hash.new
-    for c in Career.all
-      careers_count[c.id] = 0
+    for career in Career.all
+      careers_count[career.id] = 0
     end
     
-    for r in self.responses
-      choice = Choice.find(id: r.choice_id)
-      for o in choice.outcomes
-        careers_count[o.career_id] += 1
+    for response in self.responses
+      for outcome in Choice.find(id: response.choice_id).outcomes
+        careers_count[outcome.career_id] += 1
       end
     end
     
-    max_ocurrences_career_id = careers_count.key(careers_count.values.max)
-    self.update(career_id: max_ocurrences_career_id) 
-    self.update(completed_at: Sequel.lit('NOW()'))
+    self.update(
+    	career_id: careers_count.key(careers_count.values.max),
+    	completed_at: Sequel.lit('NOW()')
+    )
   end
 
   def completed?
