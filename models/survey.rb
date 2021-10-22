@@ -30,12 +30,8 @@ class Survey < Sequel::Model
   end
 
   def self.count_completed
-    sum = 0
-    for s in Survey.all
-      if (s.completed?)
-        sum += 1
-      end
-    end
-    return sum
+    count = 0
+    Survey.all.each { |survey| count += 1 if survey.completed? }
+    return count
   end
 end
