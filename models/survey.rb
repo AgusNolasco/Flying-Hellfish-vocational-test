@@ -26,7 +26,7 @@ class Survey < Sequel::Model
   end
 
   def completed?
-    return (!self.career.nil?)
+    return self.career.exist?
   end
 
   def self.count_completed
