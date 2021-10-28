@@ -42,12 +42,12 @@
             <input type='hidden' name='_method' value='PATCH'>
           <% end %>
           <% if !@question.first? %>
-            <button class='button' type='submit' name='incoming_question' value='false'> Atras </button>
+            <button class='button' type='submit' name='incoming_question' value='prev'> Atras </button>
           <% end %>
           <% if @question.last? %>
-            <button class='button' type='submit' name='incoming_question' value='true' > Finalizar </button>
+            <button class='button' type='submit' name='incoming_question' value='end' > Finalizar </button>
           <% else %>
-            <button class='button' type='submit' name='incoming_question' value='true'> Siguiente </button>
+            <button class='button' type='submit' name='incoming_question' value='next'> Siguiente </button>
             <% if Survey.find(id: @survey_id).completed? %>
               <button class='button' type='submit' name='incoming_question' value='end' > Finalizar </button>
             <% end %>

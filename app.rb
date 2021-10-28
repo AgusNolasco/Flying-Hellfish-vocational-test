@@ -54,14 +54,13 @@ class App < Sinatra::Base
     if response.save
       [201, { 'Location' => "responses/#{response.id}" }, 'UPDATED']
       #Redirect us to the next question
-      if (params[:incoming_question] == 'true')
+      case params[:incoming_question]
+      when 'next'
         question = response.question.next
-      else
-      	if (params[:incoming_question] == 'end')
-      		redirect "/finish/#{params[:survey_id]}"
-      	else
-        	question = response.question.prev
-        end
+      when 'prev'
+        question = response.question.prev
+      when 'end'
+        redirect "/finish/#{params[:survey_id]}"
       end
       if question.nil?
         redirect "/finish/#{params[:survey_id]}"
@@ -76,7 +75,7 @@ class App < Sinatra::Base
     question_id = params[:question_id]
     if (params[:choice_id].nil?)
       question = Question.find(id: question_id)
-      if (params[:incoming_question] != 'true')
+      if (params[:incoming_question] == 'prev')
         question = question.prev
       end
       redirect to("/questions/#{(question.id)}?survey_id=#{params[:survey_id]}")
@@ -86,10 +85,13 @@ class App < Sinatra::Base
     if response.save
       [201, { 'Location' => "responses/#{response.id}" }, 'CREATED']
       #Redirect us to the next question
-      if (params[:incoming_question] == 'true')
+      case params[:incoming_question]
+      when 'next'
         question = response.question.next
-      else
+      when 'prev'
         question = response.question.prev
+      when 'end'
+        redirect "/finish/#{params[:survey_id]}"
       end
       if question.nil?
         redirect "/finish/#{params[:survey_id]}"
