@@ -103,7 +103,6 @@ class App < Sinatra::Base
   end
   
   get '/surveys_info' do
-    @careers = Career.all
     @survey_count = Survey.count_completed
     if (@survey_count > 0)
       @bottom_date = params[:bottom_date]
