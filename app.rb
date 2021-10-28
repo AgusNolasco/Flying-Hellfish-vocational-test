@@ -31,7 +31,7 @@ class App < Sinatra::Base
     	survey = Survey.new(username: params[:username])
     end
     if Question.empty?
-      redirect '/finish'
+      erb :no_question_template
     else
       if survey.save
         [201, { 'Location' => "surveys/#{survey.id}" }, 'CREATED']
@@ -98,11 +98,6 @@ class App < Sinatra::Base
     else
       [500, {}, 'Internal Server Error']
     end
-  end
-
-  #This is executed when there are no questions
-  get '/finish' do
-    erb :no_question_template
   end
   
   get '/surveys_info' do
