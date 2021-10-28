@@ -50,7 +50,7 @@ class App < Sinatra::Base
 
   patch '/responses/:survey_id' do
     response = Response.find(survey_id: params[:survey_id], question_id: params[:question_id])
-    response.update(survey_id: params[:survey_id], question_id: params[:question_id], choice_id: params[:choice_id])
+    response.update(choice_id: params[:choice_id])
     if response.save
       [201, { 'Location' => "responses/#{response.id}" }, 'UPDATED']
       #Redirect us to the next question
