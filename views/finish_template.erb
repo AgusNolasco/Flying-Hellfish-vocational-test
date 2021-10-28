@@ -34,7 +34,7 @@
 
       <div class='resume'>
         <dl>
-          <% @questions.map { |question| %> 
+          <% Question.all.map { |question| %> 
             <dt> 
               <a href='/questions/<%=question.id%>?survey_id=<%=@survey.id%>'> 
                 <%=question.name%>
