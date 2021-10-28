@@ -14,7 +14,6 @@ class App < Sinatra::Base
     if (Career.empty?)
       erb :no_careers
     else
-      @careers = Career.all
       erb :careers_index
     end
   end

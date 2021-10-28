@@ -27,7 +27,7 @@
 
     <div class='careers'>
       <ul class='inColumns centered boxShadow'> 
-        <% items = @careers.map { |career| %> 
+        <% items = Career.all.map { |career| %> 
           <li> 
             <a href=/careers/<%=career.id%>>
               <%=career.name%>
