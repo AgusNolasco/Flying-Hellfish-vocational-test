@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Object
   def exist?
     !nil?
@@ -13,8 +15,6 @@ def redirect_question(curr_question, requested_question, survey_id)
   when 'end'
     redirect "/finish/#{survey_id}"
   end
-  if incoming_question.nil?
-    redirect "/finish/#{survey_id}"
-  end
-  redirect to("/questions/#{(incoming_question.id)}?survey_id=#{survey_id}")
+  redirect "/finish/#{survey_id}" if incoming_question.nil?
+  redirect to("/questions/#{incoming_question.id}?survey_id=#{survey_id}")
 end

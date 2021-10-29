@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Sequel.migration do
   up do
     alter_table :surveys do
@@ -10,5 +12,4 @@ Sequel.migration do
       drop_index :username
     end
   end
-
 end

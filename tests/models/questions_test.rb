@@ -1,8 +1,10 @@
-require File.expand_path '../../test_helper.rb', __FILE__
+# frozen_string_literal: true
+
+require File.expand_path '../test_helper.rb', __dir__
 
 class QuestionTest < MiniTest::Unit::TestCase
   MiniTest::Unit::TestCase
-  
+
   def test_question_may_has_many_choices
     # Arrange
     question = Question.create(name: 'Question One', description: 'First Question', number: '001')
@@ -14,5 +16,4 @@ class QuestionTest < MiniTest::Unit::TestCase
     # Assert
     assert_equal(question.choices.count, 4)
   end
-
 end

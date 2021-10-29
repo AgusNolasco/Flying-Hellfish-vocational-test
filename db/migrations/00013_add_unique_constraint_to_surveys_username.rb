@@ -1,5 +1,6 @@
-Sequel.migration do
+# frozen_string_literal: true
 
+Sequel.migration do
   up do
     alter_table :surveys do
       add_unique_constraint(:username, name: 'unique_username')
@@ -11,5 +12,4 @@ Sequel.migration do
       drop_constraint(:unique_username)
     end
   end
-
 end
