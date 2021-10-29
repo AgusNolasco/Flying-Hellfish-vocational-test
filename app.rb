@@ -26,12 +26,11 @@ class App < Sinatra::Base
   post '/surveys' do
     if Survey.find(username: params[:username]).exist?
     	redirect '/?rejected=true'
-    else
-    	survey = Survey.new(username: params[:username])
     end
     if Question.empty?
       erb :no_question_template
     else
+      survey = Survey.new(username: params[:username])
       if survey.save
         [201, { 'Location' => "surveys/#{survey.id}" }, 'CREATED']
       else
@@ -71,16 +70,15 @@ class App < Sinatra::Base
   end
   
   post '/responses/:survey_id' do
-    question_id = params[:question_id]
     if (params[:choice_id].nil?)
-      question = Question.find(id: question_id)
+      question = Question.find(id: params[:question_id])
       if (params[:incoming_question] == 'prev')
         question = question.prev
       end
       redirect to("/questions/#{(question.id)}?survey_id=#{params[:survey_id]}")
     end
     
-    response = Response.create(question_id: question_id, choice_id: params[:choice_id], survey_id: params[:survey_id])
+    response = Response.create(question_id: params[:question_id], choice_id: params[:choice_id], survey_id: params[:survey_id])
     if response.save
       [201, { 'Location' => "responses/#{response.id}" }, 'CREATED']
       #Redirect us to the next question
