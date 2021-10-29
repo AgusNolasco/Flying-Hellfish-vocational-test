@@ -1,0 +1,373 @@
+Inspecting 35 files
+WCCCCCCCCCWWWWWWCCCCCCCCCCCCCCCCCCC
+
+Offenses:
+
+app.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+require './models/init'
+^
+app.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+require './models/init'
+^
+app.rb:5:1: C: Style/Documentation: Missing top-level documentation comment for class App.
+class App < Sinatra::Base
+^^^^^^^^^
+app.rb:51:7: W: Lint/Void: Literal [201, { 'Location' => "responses/#{response.id}" }, 'UPDATED'] used in void context.
+      [201, { 'Location' => "responses/#{response.id}" }, 'UPDATED']
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app.rb:67:7: W: Lint/Void: Literal [201, { 'Location' => "responses/#{response.id}" }, 'CREATED'] used in void context.
+      [201, { 'Location' => "responses/#{response.id}" }, 'CREATED']
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app.rb:74:8: C: [Corrected] Style/NumericPredicate: Use @survey_count.positive? instead of @survey_count > 0.
+    if @survey_count > 0
+       ^^^^^^^^^^^^^^^^^
+models/career.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+class Career < Sequel::Model
+^
+models/career.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+class Career < Sequel::Model
+^
+models/career.rb:3:1: C: Style/Documentation: Missing top-level documentation comment for class Career.
+class Career < Sequel::Model
+^^^^^^^^^^^^
+models/career.rb:11:6: C: [Corrected] Style/NumericPredicate: Use Career.all.count.zero? instead of Career.all.count == 0.
+    (Career.all.count == 0)
+     ^^^^^^^^^^^^^^^^^^^^^
+models/career.rb:12:5: C: [Corrected] Style/RedundantParentheses: Don't use parentheses around a method call.
+    (Career.all.count.zero?)
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+models/choice.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+class Choice < Sequel::Model
+^
+models/choice.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+class Choice < Sequel::Model
+^
+models/choice.rb:3:1: C: Style/Documentation: Missing top-level documentation comment for class Choice.
+class Choice < Sequel::Model
+^^^^^^^^^^^^
+models/init.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+require_relative 'post'
+^
+models/init.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+require_relative 'post'
+^
+models/outcome.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+class Outcome < Sequel::Model
+^
+models/outcome.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+class Outcome < Sequel::Model
+^
+models/outcome.rb:3:1: C: Style/Documentation: Missing top-level documentation comment for class Outcome.
+class Outcome < Sequel::Model
+^^^^^^^^^^^^^
+models/post.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+class Post < Sequel::Model
+^
+models/post.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+class Post < Sequel::Model
+^
+models/question.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+require_relative 'util'
+^
+models/question.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+require_relative 'util'
+^
+models/question.rb:5:1: C: Style/Documentation: Missing top-level documentation comment for class Question.
+class Question < Sequel::Model
+^^^^^^^^^^^^^^
+models/response.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+class Response < Sequel::Model
+^
+models/response.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+class Response < Sequel::Model
+^
+models/response.rb:3:1: C: Style/Documentation: Missing top-level documentation comment for class Response.
+class Response < Sequel::Model
+^^^^^^^^^^^^^^
+models/response.rb:7:3: C: Metrics/AbcSize: Assignment Branch Condition size for validate is too high. [<0, 18, 6> 18.97/17]
+  def validate ...
+  ^^^^^^^^^^^^
+models/survey.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+class Survey < Sequel::Model
+^
+models/survey.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+class Survey < Sequel::Model
+^
+models/survey.rb:3:1: C: Style/Documentation: Missing top-level documentation comment for class Survey.
+class Survey < Sequel::Model
+^^^^^^^^^^^^
+models/survey.rb:12:3: C: Metrics/AbcSize: Assignment Branch Condition size for compute_result is too high. [<6, 17, 3> 18.28/17]
+  def compute_result ...
+  ^^^^^^^^^^^^^^^^^^
+models/util.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+class Object
+^
+models/util.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+class Object
+^
+models/util.rb:3:1: C: Style/Documentation: Missing top-level documentation comment for class Object.
+class Object
+^^^^^^^^^^^^
+tests/models/careers_test.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+require File.expand_path '../test_helper.rb', __dir__
+^
+tests/models/careers_test.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+require File.expand_path '../test_helper.rb', __dir__
+^
+tests/models/careers_test.rb:5:1: C: Style/Documentation: Missing top-level documentation comment for class CareerTest.
+class CareerTest < MiniTest::Unit::TestCase
+^^^^^^^^^^^^^^^^
+tests/models/careers_test.rb:6:19: W: Lint/Void: Variable TestCase used in void context.
+  MiniTest::Unit::TestCase
+                  ^^^^^^^^
+tests/models/careers_test.rb:19:3: C: Metrics/MethodLength: Method has too many lines. [11/10]
+  def test_career_must_has_name ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/models/choices_test.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+require File.expand_path '../test_helper.rb', __dir__
+^
+tests/models/choices_test.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+require File.expand_path '../test_helper.rb', __dir__
+^
+tests/models/choices_test.rb:5:1: C: Style/Documentation: Missing top-level documentation comment for class ChoiceTest.
+class ChoiceTest < MiniTest::Unit::TestCase
+^^^^^^^^^^^^^^^^
+tests/models/choices_test.rb:6:19: W: Lint/Void: Variable TestCase used in void context.
+  MiniTest::Unit::TestCase
+                  ^^^^^^^^
+tests/models/choices_test.rb:8:3: C: Metrics/MethodLength: Method has too many lines. [11/10]
+  def test_choice_must_has_text ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/models/outcomes_test.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+require File.expand_path '../test_helper.rb', __dir__
+^
+tests/models/outcomes_test.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+require File.expand_path '../test_helper.rb', __dir__
+^
+tests/models/outcomes_test.rb:5:1: C: Style/Documentation: Missing top-level documentation comment for class OutcomeTest.
+class OutcomeTest < MiniTest::Unit::TestCase
+^^^^^^^^^^^^^^^^^
+tests/models/outcomes_test.rb:6:19: W: Lint/Void: Variable TestCase used in void context.
+  MiniTest::Unit::TestCase
+                  ^^^^^^^^
+tests/models/outcomes_test.rb:7:3: C: Metrics/AbcSize: Assignment Branch Condition size for test_outcome_must_has_career_and_choice is too high. [<9, 15, 0> 17.49/17]
+  def test_outcome_must_has_career_and_choice ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/models/outcomes_test.rb:7:3: C: Metrics/MethodLength: Method has too many lines. [12/10]
+  def test_outcome_must_has_career_and_choice ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/models/outcomes_test.rb:12:5: W: Lint/UselessAssignment: Useless assignment to variable - career.
+    career = Career.create(name: 'Tecnico Nuclear')
+    ^^^^^^
+tests/models/outcomes_test.rb:13:5: W: Lint/UselessAssignment: Useless assignment to variable - choice.
+    choice = Choice.create(text: 'Venus del Nilo de jalea')
+    ^^^^^^
+tests/models/questions_test.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+require File.expand_path '../test_helper.rb', __dir__
+^
+tests/models/questions_test.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+require File.expand_path '../test_helper.rb', __dir__
+^
+tests/models/questions_test.rb:5:1: C: Style/Documentation: Missing top-level documentation comment for class QuestionTest.
+class QuestionTest < MiniTest::Unit::TestCase
+^^^^^^^^^^^^^^^^^^
+tests/models/questions_test.rb:6:19: W: Lint/Void: Variable TestCase used in void context.
+  MiniTest::Unit::TestCase
+                  ^^^^^^^^
+tests/models/responses_test.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+require File.expand_path '../test_helper.rb', __dir__
+^
+tests/models/responses_test.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+require File.expand_path '../test_helper.rb', __dir__
+^
+tests/models/responses_test.rb:5:1: C: Style/Documentation: Missing top-level documentation comment for class ResponseTest.
+class ResponseTest < MiniTest::Unit::TestCase
+^^^^^^^^^^^^^^^^^^
+tests/models/responses_test.rb:6:19: W: Lint/Void: Variable TestCase used in void context.
+  MiniTest::Unit::TestCase
+                  ^^^^^^^^
+tests/models/responses_test.rb:8:3: C: Metrics/AbcSize: Assignment Branch Condition size for test_response_may_has_question_choice_and_survey is too high. [<16, 33, 0> 36.67/17]
+  def test_response_may_has_question_choice_and_survey ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/models/responses_test.rb:8:3: C: Metrics/MethodLength: Method has too many lines. [20/10]
+  def test_response_may_has_question_choice_and_survey ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/models/surveys_test.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+require File.expand_path '../test_helper.rb', __dir__
+^
+tests/models/surveys_test.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+require File.expand_path '../test_helper.rb', __dir__
+^
+tests/models/surveys_test.rb:5:1: C: Style/Documentation: Missing top-level documentation comment for class SurveyTest.
+class SurveyTest < MiniTest::Unit::TestCase
+^^^^^^^^^^^^^^^^
+tests/models/surveys_test.rb:6:19: W: Lint/Void: Variable TestCase used in void context.
+  MiniTest::Unit::TestCase
+                  ^^^^^^^^
+tests/test_helper.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+ENV['RACK_ENV'] = 'test'
+^
+tests/test_helper.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+ENV['RACK_ENV'] = 'test'
+^
+tests/test_helper.rb:14:7: C: [Corrected] Style/ClassAndModuleChildren: Use nested module/class definitions instead of compact style.
+class Minitest::HooksSpec
+      ^^^^^^^^^^^^^^^^^^^
+tests/test_helper.rb:17:3: C: [Corrected] Layout/IndentationWidth: Use 2 (not 0) spaces for indentation.
+  def around
+  
+tests/test_helper.rb:17:3: C: Style/Documentation: Missing top-level documentation comment for class Minitest::HooksSpec.
+  class HooksSpec
+  ^^^^^^^^^^^^^^^
+db/clean_database.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+### Delete existing dataset ###
+^
+db/clean_database.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+### Delete existing dataset ###
+^
+db/clean_database.rb:2:18: C: [Corrected] Style/SymbolProc: Pass &:destroy as an argument to map instead of a block.
+Response.all.map { |r| r.destroy }
+                 ^^^^^^^^^^^^^^^^^
+db/clean_database.rb:3:18: C: [Corrected] Style/SymbolProc: Pass &:destroy as an argument to map instead of a block.
+Survey.all.map   { |s| s.destroy }
+                 ^^^^^^^^^^^^^^^^^
+db/clean_database.rb:4:18: C: [Corrected] Style/SymbolProc: Pass &:destroy as an argument to map instead of a block.
+Outcome.all.map  { |o| o.destroy }
+                 ^^^^^^^^^^^^^^^^^
+db/clean_database.rb:5:18: C: [Corrected] Style/SymbolProc: Pass &:destroy as an argument to map instead of a block.
+Career.all.map   { |c| c.destroy }
+                 ^^^^^^^^^^^^^^^^^
+db/clean_database.rb:6:18: C: [Corrected] Style/SymbolProc: Pass &:destroy as an argument to map instead of a block.
+Choice.all.map   { |c| c.destroy }
+                 ^^^^^^^^^^^^^^^^^
+db/clean_database.rb:7:18: C: [Corrected] Style/SymbolProc: Pass &:destroy as an argument to map instead of a block.
+Question.all.map { |q| q.destroy }
+                 ^^^^^^^^^^^^^^^^^
+db/migrations/00001_create_posts_table.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+Sequel.migration do
+^
+db/migrations/00001_create_posts_table.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+Sequel.migration do
+^
+db/migrations/00002_add_date_fields_to_posts.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+Sequel.migration do
+^
+db/migrations/00002_add_date_fields_to_posts.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+Sequel.migration do
+^
+db/migrations/00003_create_careers_table.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+Sequel.migration do
+^
+db/migrations/00003_create_careers_table.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+Sequel.migration do
+^
+db/migrations/00004_create_questions_table.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+Sequel.migration do
+^
+db/migrations/00004_create_questions_table.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+Sequel.migration do
+^
+db/migrations/00005_create_surveys_table.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+Sequel.migration do
+^
+db/migrations/00005_create_surveys_table.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+Sequel.migration do
+^
+db/migrations/00006_create_responses_table.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+Sequel.migration do
+^
+db/migrations/00006_create_responses_table.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+Sequel.migration do
+^
+db/migrations/00007_create_choices_table.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+Sequel.migration do
+^
+db/migrations/00007_create_choices_table.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+Sequel.migration do
+^
+db/migrations/00008_create_outcomes_table.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+Sequel.migration do
+^
+db/migrations/00008_create_outcomes_table.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+Sequel.migration do
+^
+db/migrations/00009_add_choice_to_question_association.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+Sequel.migration do
+^
+db/migrations/00009_add_choice_to_question_association.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+Sequel.migration do
+^
+db/migrations/00010_add_response_to_choice_association.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+Sequel.migration do
+^
+db/migrations/00010_add_response_to_choice_association.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+Sequel.migration do
+^
+db/migrations/00011_add_ref_column_to_careers.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+Sequel.migration do
+^
+db/migrations/00011_add_ref_column_to_careers.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+Sequel.migration do
+^
+db/migrations/00012_add_index_to_surveys_usernames.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+Sequel.migration do
+^
+db/migrations/00012_add_index_to_surveys_usernames.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+Sequel.migration do
+^
+db/migrations/00013_add_unique_constraint_to_surveys_username.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+Sequel.migration do
+^
+db/migrations/00013_add_unique_constraint_to_surveys_username.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+Sequel.migration do
+^
+db/migrations/00014_add_completed_at_column.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+Sequel.migration do
+^
+db/migrations/00014_add_completed_at_column.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+Sequel.migration do
+^
+db/migrations/00015_drop_updated_at_column.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+Sequel.migration do
+^
+db/migrations/00015_drop_updated_at_column.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+Sequel.migration do
+^
+db/reset_surveys_data.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+### Delete existing responses and surveys ###
+^
+db/reset_surveys_data.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+### Delete existing responses and surveys ###
+^
+db/reset_surveys_data.rb:2:18: C: [Corrected] Style/SymbolProc: Pass &:destroy as an argument to map instead of a block.
+Response.all.map { |r| r.destroy }
+                 ^^^^^^^^^^^^^^^^^
+db/reset_surveys_data.rb:3:18: C: [Corrected] Style/SymbolProc: Pass &:destroy as an argument to map instead of a block.
+Survey.all.map   { |s| s.destroy }
+                 ^^^^^^^^^^^^^^^^^
+db/seeds.rb:1:1: C: [Corrected] Style/FrozenStringLiteralComment: Missing frozen string literal comment.
+### Delete existing dataset ###
+^
+db/seeds.rb:2:1: C: [Corrected] Layout/EmptyLineAfterMagicComment: Add an empty line after magic comments.
+### Delete existing dataset ###
+^
+db/seeds.rb:2:18: C: [Corrected] Style/SymbolProc: Pass &:destroy as an argument to map instead of a block.
+Response.all.map { |r| r.destroy }
+                 ^^^^^^^^^^^^^^^^^
+db/seeds.rb:3:18: C: [Corrected] Style/SymbolProc: Pass &:destroy as an argument to map instead of a block.
+Survey.all.map   { |s| s.destroy }
+                 ^^^^^^^^^^^^^^^^^
+db/seeds.rb:4:18: C: [Corrected] Style/SymbolProc: Pass &:destroy as an argument to map instead of a block.
+Outcome.all.map  { |o| o.destroy }
+                 ^^^^^^^^^^^^^^^^^
+db/seeds.rb:5:18: C: [Corrected] Style/SymbolProc: Pass &:destroy as an argument to map instead of a block.
+Career.all.map   { |c| c.destroy }
+                 ^^^^^^^^^^^^^^^^^
+db/seeds.rb:6:18: C: [Corrected] Style/SymbolProc: Pass &:destroy as an argument to map instead of a block.
+Choice.all.map   { |c| c.destroy }
+                 ^^^^^^^^^^^^^^^^^
+db/seeds.rb:7:18: C: [Corrected] Style/SymbolProc: Pass &:destroy as an argument to map instead of a block.
+Question.all.map { |q| q.destroy }
+                 ^^^^^^^^^^^^^^^^^
+
+35 files inspected, 122 offenses detected, 89 offenses corrected
