@@ -51,19 +51,7 @@ class App < Sinatra::Base
     response.update(choice_id: params[:choice_id])
     if response.save
       [201, { 'Location' => "responses/#{response.id}" }, 'UPDATED']
-      #Redirect us to the next question
-      case params[:incoming_question]
-      when 'next'
-        question = response.question.next
-      when 'prev'
-        question = response.question.prev
-      when 'end'
-        redirect "/finish/#{params[:survey_id]}"
-      end
-      if question.nil?
-        redirect "/finish/#{params[:survey_id]}"
-      end
-      redirect to("/questions/#{(question.id)}?survey_id=#{params[:survey_id]}")
+      redirect_question(response.question, params[:incoming_question], params[:survey_id])
     else
       [500, {}, 'Internal Server Error']
     end
@@ -76,24 +64,11 @@ class App < Sinatra::Base
         question = question.prev
       end
       redirect to("/questions/#{(question.id)}?survey_id=#{params[:survey_id]}")
-    end
-    
+    end 
     response = Response.create(question_id: params[:question_id], choice_id: params[:choice_id], survey_id: params[:survey_id])
     if response.save
       [201, { 'Location' => "responses/#{response.id}" }, 'CREATED']
-      #Redirect us to the next question
-      case params[:incoming_question]
-      when 'next'
-        question = response.question.next
-      when 'prev'
-        question = response.question.prev
-      when 'end'
-        redirect "/finish/#{params[:survey_id]}"
-      end
-      if question.nil?
-        redirect "/finish/#{params[:survey_id]}"
-      end
-      redirect to("/questions/#{(question.id)}?survey_id=#{params[:survey_id]}")
+      redirect_question(response.question, params[:incoming_question], params[:survey_id])
     else
       [500, {}, 'Internal Server Error']
     end
