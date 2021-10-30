@@ -9,12 +9,10 @@ end
 def redirect_question(curr_question, requested_question, survey_id)
   case requested_question
   when 'next'
-    incoming_question = curr_question.next
+    redirect "/questions/#{curr_question.next.id}?survey_id=#{survey_id}"
   when 'prev'
-    incoming_question = curr_question.prev
+    redirect "/questions/#{curr_question.prev.id}?survey_id=#{survey_id}"
   when 'end'
     redirect "/finish/#{survey_id}"
   end
-  redirect "/finish/#{survey_id}" if incoming_question.nil?
-  redirect to("/questions/#{incoming_question.id}?survey_id=#{survey_id}")
 end
