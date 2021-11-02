@@ -1,4 +1,6 @@
-require File.expand_path '../../test_helper.rb', __FILE__
+# frozen_string_literal: true
+
+require File.expand_path '../test_helper.rb', __dir__
 
 class OutcomeTest < MiniTest::Unit::TestCase
   MiniTest::Unit::TestCase
@@ -7,8 +9,8 @@ class OutcomeTest < MiniTest::Unit::TestCase
     outcome1 = Outcome.new
     outcome2 = Outcome.new
     outcome3 = Outcome.new
-    career = Career.create(:name => 'Tecnico Nuclear')
-    choice = Choice.create(:text => 'Venus del Nilo de jalea')
+    Career.create(name: 'Tecnico Nuclear')
+    Choice.create(text: 'Venus del Nilo de jalea')
     # Act
     outcome1.career_id = 1
     outcome2.choice_id = 1

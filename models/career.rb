@@ -1,14 +1,15 @@
-class Career < Sequel::Model
-    one_to_many :surveys
-    one_to_many :outcomes
-    
-    def validate 
-      super
-      errors.add(:name, :name => 'name can not be nil or empty') if name.nil? || name.empty?
-    end
+# frozen_string_literal: true
 
-    def self.empty?
-      return (Career.all.count == 0)
-    end
- end
-  
+class Career < Sequel::Model
+  one_to_many :surveys
+  one_to_many :outcomes
+
+  def validate
+    super
+    errors.add(:name, name: 'name can not be nil or empty') if name.nil? || name.empty?
+  end
+
+  def self.empty?
+    Career.all.count.zero?
+  end
+end

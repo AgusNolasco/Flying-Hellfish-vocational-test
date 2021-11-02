@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Sequel.migration do
   up do
     create_table(:careers) do
@@ -12,4 +14,3 @@ Sequel.migration do
     drop_table(:careers)
   end
 end
-

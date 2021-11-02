@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ### Delete existing responses and surveys ###
-Response.all.map { |r| r.destroy }
-Survey.all.map   { |s| s.destroy }
+Response.all.map(&:destroy)
+Survey.all.map(&:destroy)

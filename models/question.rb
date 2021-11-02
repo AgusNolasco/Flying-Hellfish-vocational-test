@@ -1,48 +1,50 @@
+# frozen_string_literal: true
+
+require_relative 'util'
+
 class Question < Sequel::Model
   one_to_many :choices
   one_to_many :responses
 
   def next
-    next_id = self.id + 1
+    next_id = id + 1
     next_question = Question.find(id: next_id)
     while next_id < Question.last.id && next_question.nil?
       next_id += 1
       next_question = Question.find(id: next_id)
     end
 
-    return next_question
+    next_question
   end
 
   def prev
-    prev_id = self.id - 1
+    prev_id = id - 1
     prev_question = Question.find(id: prev_id)
     while prev_id > Question.first.id && prev_question.nil?
       prev_id -= 1
       prev_question = Question.find(id: prev_id)
     end
 
-    return prev_question
+    prev_question
+  end
+
+  def get_response(survey_id)
+    Response.find(survey_id: survey_id, question_id: id)
   end
 
   def answered?(survey_id)
-    response = Response.find(survey_id: survey_id, question_id: self.id)
-    return (not response.nil?)
+    get_response(survey_id).exist?
   end
 
-  def choiceSelected(survey_id)
-    response = Response.find(survey_id: survey_id, question_id: self.id)
-    if response.nil?
-      return nil
-    else
-      return Choice.find(id: response.choice_id)
-    end 
+  def choice_selected(survey_id)
+    Choice.find(id: get_response(survey_id).choice_id) if answered?(survey_id)
   end
 
   def first?
-    return (self == Question.first)
+    (self == Question.first)
   end
 
   def last?
-    return (self == Question.last)
+    (self == Question.last)
   end
-end 
+end
