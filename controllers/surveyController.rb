@@ -57,4 +57,23 @@ class SurveyController < Sinatra::Base
     @career = Career.find(id: @survey.career_id)
     erb :finish_template
   end
+  
+  get '/surveys_info' do
+    @survey_count = Survey.count_completed
+    if @survey_count.positive?
+      @bottom_date = params[:bottom_date]
+      @top_date = params[:top_date]
+      @selected_career = params[:selected_career]
+      @surveys_between_dates = nil
+      if !@bottom_date.nil? && !@top_date.nil? && !params[:selected_career].nil?
+        @surveys_between_dates = Survey.where(
+          completed_at: @bottom_date..@top_date,
+          career_id: Career.find(name: @selected_career).id
+        ).all.count
+      end
+      erb :surveys_info_template
+    else
+      erb :no_surveys
+    end
+  end
 end
