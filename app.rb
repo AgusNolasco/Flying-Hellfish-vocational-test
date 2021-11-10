@@ -6,7 +6,6 @@ class App < Sinatra::Base
   set :method_override, true
 
   get '/' do
-    @rejected = true unless params[:rejected].nil?
     erb :landing_page
   end
 
@@ -24,11 +23,11 @@ class App < Sinatra::Base
   end
 
   post '/surveys' do
-    redirect '/?rejected=true' if Survey.find(username: params[:username]).exist?
     if Question.empty?
       erb :no_question_template
     else
-      survey = Survey.new(username: params[:username])
+      survey = Survey.find(username: params[:username])
+      survey = Survey.new(username: params[:username]) unless survey.exist?
       if survey.save
         [201, { 'Location' => "surveys/#{survey.id}" }, 'CREATED']
       else
