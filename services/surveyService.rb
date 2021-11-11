@@ -1,7 +1,7 @@
 require 'sinatra/base'
 
 class SurveyService < Sinatra::Base
-  def self.createSurvey(username)
+  def self.create_survey(username)
     survey = Survey.find(username: username)
     survey = Survey.new(username: username) unless survey.exist?
     if survey.save
@@ -12,7 +12,7 @@ class SurveyService < Sinatra::Base
     survey
   end
 
-  def self.respondQuestion(question_id, choice_id, survey_id)
+  def self.respond_question(question_id, choice_id, survey_id)
     response = Response.create(question_id: question_id, choice_id: choice_id,
                                survey_id: survey_id)
     if response.save
@@ -23,7 +23,7 @@ class SurveyService < Sinatra::Base
     response
   end
 
-  def self.updateResponse(question_id, choice_id, survey_id)
+  def self.update_response(question_id, choice_id, survey_id)
     response = Response.find(survey_id: survey_id, question_id: question_id)
     response.update(choice_id: choice_id)
     if response.save
@@ -34,7 +34,7 @@ class SurveyService < Sinatra::Base
     response
   end
 
-  def self.getQuestion(curr_question, requested_question, survey_id)
+  def self.get_question(curr_question, requested_question, survey_id)
     case requested_question
     when 'next'
       "/questions/#{curr_question.next.id}?survey_id=#{survey_id}"

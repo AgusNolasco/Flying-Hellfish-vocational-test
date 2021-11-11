@@ -10,7 +10,7 @@ class SurveyController < Sinatra::Base
       erb :no_question_template
     else
       username = params[:username]
-      survey = SurveyService.createSurvey(username)
+      survey = SurveyService.create_survey(username)
       redirect to("/questions/#{Question.first.id}?survey_id=#{survey.id}")
     end
   end
@@ -30,16 +30,16 @@ class SurveyController < Sinatra::Base
     question_id = params[:question_id]
     choice_id = params[:choice_id]
     survey_id = params[:survey_id]
-    response = SurveyService.respondQuestion(question_id, choice_id, survey_id)
-    redirect SurveyService.getQuestion(response.question, params[:incoming_question], survey_id)
+    response = SurveyService.respond_question(question_id, choice_id, survey_id)
+    redirect SurveyService.get_question(response.question, params[:incoming_question], survey_id)
   end
 
   patch '/responses/:survey_id' do
     question_id = params[:question_id]
     choice_id = params[:choice_id]
     survey_id = params[:survey_id]
-    response = SurveyService.updateResponse(question_id, choice_id, survey_id)
-    redirect SurveyService.getQuestion(response.question, params[:incoming_question], survey_id)
+    response = SurveyService.update_response(question_id, choice_id, survey_id)
+    redirect SurveyService.get_question(response.question, params[:incoming_question], survey_id)
   end
 
   get '/finish/:survey_id' do
