@@ -1,19 +1,16 @@
 require 'sinatra/base'
+require_relative '../services/init'
 
 class SurveyController < Sinatra::Base
   set :views, Proc.new { File.join(root, "../views") }
+  use SurveyService
 
   post '/surveys' do
     if Question.empty?
       erb :no_question_template
     else
-      survey = Survey.find(username: params[:username])
-      survey = Survey.new(username: params[:username]) unless survey.exist?
-      if survey.save
-        [201, { 'Location' => "surveys/#{survey.id}" }, 'CREATED']
-      else
-        [500, {}, 'Internal Server Error']
-      end
+      username = params[:username]
+      survey = SurveyService.createSurvey(username)
       redirect to("/questions/#{Question.first.id}?survey_id=#{survey.id}")
     end
   end
@@ -30,25 +27,19 @@ class SurveyController < Sinatra::Base
       question = question.prev if params[:incoming_question] == 'prev'
       redirect to("/questions/#{question.id}?survey_id=#{params[:survey_id]}")
     end
-    response = Response.create(question_id: params[:question_id], choice_id: params[:choice_id],
-                               survey_id: params[:survey_id])
-    if response.save
-      [201, { 'Location' => "responses/#{response.id}" }, 'CREATED']
-      redirect_question(response.question, params[:incoming_question], params[:survey_id])
-    else
-      [500, {}, 'Internal Server Error']
-    end
+    question_id = params[:question_id]
+    choice_id = params[:choice_id]
+    survey_id = params[:survey_id]
+    response = SurveyService.respondQuestion(question_id, choice_id, survey_id)
+    redirect SurveyService.getQuestion(response.question, params[:incoming_question], survey_id)
   end
 
   patch '/responses/:survey_id' do
-    response = Response.find(survey_id: params[:survey_id], question_id: params[:question_id])
-    response.update(choice_id: params[:choice_id])
-    if response.save
-      [201, { 'Location' => "responses/#{response.id}" }, 'UPDATED']
-      redirect_question(response.question, params[:incoming_question], params[:survey_id])
-    else
-      [500, {}, 'Internal Server Error']
-    end
+    question_id = params[:question_id]
+    choice_id = params[:choice_id]
+    survey_id = params[:survey_id]
+    response = SurveyService.updateResponse(question_id, choice_id, survey_id)
+    redirect SurveyService.getQuestion(response.question, params[:incoming_question], survey_id)
   end
 
   get '/finish/:survey_id' do
