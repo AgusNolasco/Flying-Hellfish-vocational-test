@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 require 'sinatra/base'
 require_relative '../services/init'
 
 class SurveyController < Sinatra::Base
-  set :views, Proc.new { File.join(root, "../views") }
+  set :views, proc { File.join(root, '../views') }
   use SurveyService
 
   post '/surveys' do
@@ -48,7 +50,7 @@ class SurveyController < Sinatra::Base
     @career = Career.find(id: @survey.career_id)
     erb :finish_template
   end
-  
+
   get '/surveys_info' do
     if Survey.count_completed.positive?
       @bottom_date = params[:bottom_date]
