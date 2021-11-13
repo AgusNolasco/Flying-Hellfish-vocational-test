@@ -88,14 +88,14 @@
 
 
     <div class='surveys'>
-        <a> Total de encuestas terminadas: <%=@survey_count%> </a>
+        <a> Total de encuestas terminadas: <%=Survey.count_completed%> </a>
         <br>
         <br>
       <ul class='inColumns boxShadow centered'>
         <% sorted_careers = Career.all.sort_by { |career| -career.surveys.count } %>
         <% sorted_careers.map { |career| %> 
           <li class='careers'> 
-            <a> <%=career.name %>: <%=career.surveys.count %> - <%='%.2f' % ((career.surveys.count.to_f * 100) / @survey_count) %> % </a>
+            <a> <%=career.name %>: <%=career.surveys.count %> - <%='%.2f' % ((career.surveys.count.to_f * 100) / Survey.count_completed) %> % </a>
           </li> <br>
           <% } %>
       </ul>

@@ -50,8 +50,7 @@ class SurveyController < Sinatra::Base
   end
   
   get '/surveys_info' do
-    @survey_count = Survey.count_completed
-    if @survey_count.positive?
+    if Survey.count_completed.positive?
       @bottom_date = params[:bottom_date]
       @top_date = params[:top_date]
       @selected_career = params[:selected_career]
