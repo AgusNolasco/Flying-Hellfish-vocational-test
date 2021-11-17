@@ -34,7 +34,7 @@
 
       <div class='resume'>
         <dl>
-          <% @questions.map { |question| %> 
+          <% Question.all.map { |question| %> 
             <dt> 
               <a href='/questions/<%=question.id%>?survey_id=<%=@survey.id%>'> 
                 <%=question.name%>
@@ -42,7 +42,7 @@
               <a>- <%=question.description%> </a>
             </dt>
             <dd class='boxShadow'> 
-              <a> <%=question.choiceSelected(@survey.id).text%> </a>
+              <a> <%=question.choice_selected(@survey.id).text%> </a>
             </dd>
             <br>
           <% } %>

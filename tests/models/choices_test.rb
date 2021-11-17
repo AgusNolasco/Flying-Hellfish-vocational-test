@@ -1,4 +1,6 @@
-require File.expand_path '../../test_helper.rb', __FILE__
+# frozen_string_literal: true
+
+require File.expand_path '../test_helper.rb', __dir__
 
 class ChoiceTest < MiniTest::Unit::TestCase
   MiniTest::Unit::TestCase
@@ -20,5 +22,4 @@ class ChoiceTest < MiniTest::Unit::TestCase
     assert_equal(choice3.valid?, false)
     assert_equal(choice4.valid?, true)
   end
-
 end

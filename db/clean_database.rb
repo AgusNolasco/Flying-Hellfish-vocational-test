@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 ### Delete existing dataset ###
-Response.all.map { |r| r.destroy }
-Survey.all.map   { |s| s.destroy }
-Outcome.all.map  { |o| o.destroy }
-Career.all.map   { |c| c.destroy }
-Choice.all.map   { |c| c.destroy }
-Question.all.map { |q| q.destroy }
+Response.all.map(&:destroy)
+Survey.all.map(&:destroy)
+Outcome.all.map(&:destroy)
+Career.all.map(&:destroy)
+Choice.all.map(&:destroy)
+Question.all.map(&:destroy)

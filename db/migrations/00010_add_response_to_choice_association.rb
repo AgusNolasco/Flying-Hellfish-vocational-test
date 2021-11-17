@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Sequel.migration do
   up do
     alter_table :responses do
@@ -5,12 +7,9 @@ Sequel.migration do
     end
   end
 
-
-
   down do
     alter_table :responses do
       drop_foreign_key :choice_id
     end
   end
-
 end
